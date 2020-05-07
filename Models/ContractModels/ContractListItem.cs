@@ -12,6 +12,6 @@ namespace Models.ContractModels
         [Key]
         public int ContractId { get; set; }
         public string ContractDescription { get; set; }
-        public int Price { get; set; }
+        public int ContractPrice { get; set; }
     }
 }

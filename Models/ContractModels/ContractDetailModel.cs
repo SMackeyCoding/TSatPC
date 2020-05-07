@@ -21,6 +21,6 @@ namespace Models.ContractModels
         public int ShipId { get; set; }
         [ForeignKey("Weapon")]
         public int WeaponId { get; set; }
-        public int Price { get; set; }
+        public int ContractPrice { get; set; }
     }
 }
