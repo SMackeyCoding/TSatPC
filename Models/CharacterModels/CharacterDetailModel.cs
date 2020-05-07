@@ -8,6 +8,7 @@ namespace Models.CharacterModels
 {
     public class CharacterDetailModel
     {
+        public int CharacterId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Species { get; set; }

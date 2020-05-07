@@ -8,6 +8,7 @@ namespace Models.CharacterModels
 {
     public class CharacterUpdateModel
     {
+        public int CharacterId { get; set; }
         public string UpdatedFirstName { get; set; }
         public string UpdatedLastName { get; set; }
         public string UpdatedSpecies { get; set; }
