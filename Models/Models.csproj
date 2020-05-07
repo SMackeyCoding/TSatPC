@@ -56,6 +56,10 @@
     <Compile Include="CharacterModels\CharacterDetailModel.cs" />
     <Compile Include="CharacterModels\CharacterListModel.cs" />
     <Compile Include="CharacterModels\CharacterUpdateModel.cs" />
+    <Compile Include="PlanetModels\PlanetCreateModel.cs" />
+    <Compile Include="PlanetModels\PlanetDetailModel.cs" />
+    <Compile Include="PlanetModels\PlanetListItem.cs" />
+    <Compile Include="PlanetModels\PlanetUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ContractModels\" />
-    <Folder Include="PlanetModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace Models.PlanetModels
 {
-    public class Planet
+    public class PlanetDetailModel
     {
-        [Key]
         public int PlanetId { get; set; }
         public string PlanetName { get; set; }
         public string PlanetDescription { get; set; }
