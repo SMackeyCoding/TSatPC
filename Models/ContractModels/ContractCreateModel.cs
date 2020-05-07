@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace Models.ContractModels
 {
-    public class Contract
+    public class ContractCreateModel
     {
         [Key]
         public int ContractId { get; set; }

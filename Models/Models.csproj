@@ -54,6 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContractModels\ContractCreateModel.cs" />
+    <Compile Include="ContractModels\ContractDeleteModel.cs" />
+    <Compile Include="ContractModels\ContractDetailModel.cs" />
+    <Compile Include="ContractModels\ContractListItem.cs" />
+    <Compile Include="ContractModels\ContractUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CharacterModels\" />
-    <Folder Include="ContractModels\" />
     <Folder Include="PlanetModels\" />
   </ItemGroup>
   <ItemGroup>
