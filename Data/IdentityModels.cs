@@ -35,5 +35,6 @@ namespace Data
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<Planet> Planets { get; set; }
         public DbSet<Weapon> Weapons { get; set; }
+        public DbSet<Ship> Ships { get; set; }
     }
 }
