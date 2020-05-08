@@ -5,14 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace Models.WeaponFolder
 {
-    public class Weapon
+    public class WeaponCreateModel
     {
-        [Key]
-        public int WeaponId { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string WeaponName { get; set; }
         [Required]
         public string Type { get; set; }
         [Required]
