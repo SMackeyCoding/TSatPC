@@ -34,6 +34,10 @@ namespace Services
             _ctx.Contracts.Remove(entity);
             _ctx.SaveChanges();
         }
+        public void DeleteContract(int contractId)
+        {
+            throw new NotImplementedException();
+        }
 
         public ContractDetailModel GetContractDetailById(int contractId)
         {
@@ -62,7 +66,7 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateContract(ContractUpdateModel contractToUpdate)
+        public void UpdateContract(int contractId, ContractUpdateModel contractToUpdate)
         {
             var entity = _ctx.Contracts.Single(e => e.ContractId == contractToUpdate.ContractId);
             if (entity != null)

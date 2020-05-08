@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.ContractModels;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,31 +11,54 @@ namespace API.Controllers
 {
     public class ContractController : ApiController
     {
-        // GET: api/Contract
-        public IEnumerable<string> Get()
+        private ContractService CreateContractService()
         {
-            return new string[] { "value1", "value2" };
+            var contractService = new ContractService();
+            return contractService;
         }
-
-        // GET: api/Contract/5
-        public string Get(int id)
+        [HttpPost]
+        [Route("Create")]
+        public IHttpActionResult CreateContract(ContractCreateModel contractToCreate)
         {
-            return "value";
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreateContractService();
+            service.CreateContract(contractToCreate);
+            return Ok();
         }
-
-        // POST: api/Contract
-        public void Post([FromBody]string value)
+        [HttpGet]
+        [Route("List")]
+        public IHttpActionResult GetContractList()
         {
+            var service = CreateContractService();
+            var contracts = service.GetContracts();
+            return Ok(contracts);
         }
-
-        // PUT: api/Contract/5
-        public void Put(int id, [FromBody]string value)
+        [HttpGet]
+        [Route("{ContractId:int}")]
+        public IHttpActionResult GetContractDetailById([FromUri] int contractId)
         {
+            var service = CreateContractService();
+            var contractDetail = service.GetContractDetailById(contractId);
+            return Ok(contractDetail);
         }
-
-        // DELETE: api/Contract/5
-        public void Delete(int id)
+        [HttpPut]
+        [Route("{ContractId:int}")]
+        public IHttpActionResult UpdateContract([FromUri] int contractId, ContractUpdateModel contractToUpdate)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreateContractService();
+            service.UpdateContract(contractId, contractToUpdate);
+            return Ok();
+        }
+        [HttpDelete]
+        [Route("{ContractId:int}")]
+        public IHttpActionResult DeleteContract([FromUri] int contractId)
+        {
+            var service = CreateContractService();
+            service.DeleteContract(contractId);
+            return Ok();
         }
     }
 }
