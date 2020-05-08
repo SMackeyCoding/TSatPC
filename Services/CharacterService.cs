@@ -26,10 +26,9 @@ namespace Services
                 DefaultShipId = characterToCreate.DefaultShipId
             };
 
-            {
-                _ctx.Characters.Add(entity);
-                _ctx.SaveChanges();
-            }
+            _ctx.Characters.Add(entity);
+            _ctx.SaveChanges();
+
         }
 
         public void DeleteCharacter(CharacterDeleteModel characterToDelete)
