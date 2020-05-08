@@ -10,7 +10,7 @@ namespace Models.WeaponFolder
     public class WeaponCreateModel
     {
         [Required]
-        public string WeaponName { get; set; }
+        public string Name { get; set; }
         [Required]
         public string Type { get; set; }
         [Required]
