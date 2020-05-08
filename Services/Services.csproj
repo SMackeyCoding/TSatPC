@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContractService.cs" />
+    <Compile Include="CharacterService.cs" />
+    <Compile Include="PlanetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +64,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj">
+      <Project>{B92F5CD2-3CD1-4718-B088-F4E4AE0181D1}</Project>
+      <Name>Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{88FD165D-39CA-4631-AB1D-BDBFA20009A5}</Project>
       <Name>Data</Name>

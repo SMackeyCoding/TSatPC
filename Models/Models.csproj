@@ -40,9 +40,6 @@
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -59,6 +56,15 @@
     <Compile Include="ContractModels\ContractDetailModel.cs" />
     <Compile Include="ContractModels\ContractListItem.cs" />
     <Compile Include="ContractModels\ContractUpdateModel.cs" />
+    <Compile Include="CharacterModels\CharacterCreateModel.cs" />
+    <Compile Include="CharacterModels\CharacterDeleteModel.cs" />
+    <Compile Include="CharacterModels\CharacterDetailModel.cs" />
+    <Compile Include="CharacterModels\CharacterListModel.cs" />
+    <Compile Include="CharacterModels\CharacterUpdateModel.cs" />
+    <Compile Include="PlanetModels\PlanetCreateModel.cs" />
+    <Compile Include="PlanetModels\PlanetDetailModel.cs" />
+    <Compile Include="PlanetModels\PlanetListItem.cs" />
+    <Compile Include="PlanetModels\PlanetUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +74,7 @@
   <ItemGroup>
     <Folder Include="CharacterModels\" />
     <Folder Include="PlanetModels\" />
+    <Folder Include="ContractModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

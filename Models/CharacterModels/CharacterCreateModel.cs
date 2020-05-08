@@ -5,19 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace Models.CharacterModels
 {
-    public class Character
+   public class CharacterCreateModel
     {
-        [Key]
-        public int CharacterId { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
+
         public string LastName { get; set; }
         [Required]
+
         public string Species { get; set; }
         [Required]
+
         public int Price { get; set; }
         public string Affiliation { get; set; }
         public int DefaultWeaponId { get; set; }
