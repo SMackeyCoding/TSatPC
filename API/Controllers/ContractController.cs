@@ -31,7 +31,7 @@ namespace API.Controllers
         public IHttpActionResult GetContractList()
         {
             var service = CreateContractService();
-            var contracts = service.GetContracts();
+            var contracts = service.GetAllContracts();
             return Ok(contracts);
         }
         [HttpGet]
@@ -49,7 +49,7 @@ namespace API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             var service = CreateContractService();
-            service.UpdateContract(contractId, contractToUpdate);
+            service.UpdateContractById(contractId, contractToUpdate);
             return Ok();
         }
         [HttpDelete]
@@ -57,7 +57,7 @@ namespace API.Controllers
         public IHttpActionResult DeleteContract([FromUri] int contractId)
         {
             var service = CreateContractService();
-            service.DeleteContract(contractId);
+            service.DeleteContractById(contractId);
             return Ok();
         }
     }

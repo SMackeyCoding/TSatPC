@@ -9,7 +9,6 @@ namespace Models.WeaponFolder
 {
     public class WeaponUpdateModel
     {
-        public int WeaponId { get; set; }
         public string UpdatedName { get; set; }
         public WeaponType UpdatedType { get; set; }
         public string UpdatedRange { get; set; }
