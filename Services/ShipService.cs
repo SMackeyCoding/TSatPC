@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Data.Entities.Enums;
 
 namespace Services
 {
@@ -73,7 +74,6 @@ namespace Services
         {
             var entity = _ctx.Ships.Single(e => e.ShipId == shipId);
             if (entity != null)
-            {
                 if (shipToUpdate.UpdatedShipName != null)
                     entity.ShipName = shipToUpdate.UpdatedShipName;
                 if (shipToUpdate.UpdatedShipClass != null)
@@ -83,7 +83,7 @@ namespace Services
                 if (shipToUpdate.UpdatedShipManufacturer != null)
                     entity.ShipManufacturer = shipToUpdate.UpdatedShipManufacturer;
                 if (shipToUpdate.UpdatedShipHyperdrive != null)
-                entity.ShipHyperdrive = shipToUpdate.UpdatedShipHyperdrive;
+                entity.ShipHyperdrive = (bool)shipToUpdate.UpdatedShipHyperdrive;
                 if (shipToUpdate.UpdatedShipLength != null)
                     entity.ShipLength = (int)shipToUpdate.UpdatedShipLength;
                 if (shipToUpdate.UpdatedShipMaxSpeed != null)
@@ -94,5 +94,5 @@ namespace Services
             }
         }
     }
-}
+
 
