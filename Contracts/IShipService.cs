@@ -10,9 +10,9 @@ namespace Contracts
     public interface IShipService
     {
         void CreateShip(ShipCreateModel shipToCreate);
-        IEnumerable<ShipListModel> GetShips();
+        IEnumerable<ShipListModel> GetAllShips();
         ShipDetailModel GetShipDetailById(int shipId);
-        void UpdateShip(ShipUpdateModel shipToUpdate);
-        void DeleteShip(ShipDeleteModel shipToDelete);
+        void UpdateShipById(int shipId, ShipUpdateModel shipToUpdate);
+        void DeleteShipById(int shipId);
     }
 }

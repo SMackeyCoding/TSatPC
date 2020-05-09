@@ -9,9 +9,9 @@ namespace Models.ShipModels
     public class ShipListModel
     {
         public int ShipId { get; set; }
-        public string Name { get; set; }
-        public string Class { get; set; }
-        public bool Hyperdrive { get; set; }
-        public int Price { get; set; }
+        public string ShipName { get; set; }
+        public string ShipClass { get; set; }
+        public bool ShipHyperdrive { get; set; }
+        public int ShipPrice { get; set; }
     }
 }

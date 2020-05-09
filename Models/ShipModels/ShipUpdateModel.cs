@@ -8,14 +8,13 @@ namespace Models.ShipModels
 {
     public class ShipUpdateModel
     {
-        public int ShipId { get; set; }
-        public string UpdatedName { get; set; }
-        public string UpdatedClass { get; set; }
-        public string UpdatedModel { get; set; }
-        public string UpdatedManufacturer { get; set; }
-        public bool UpdatedHyperdrive { get; set; }
-        public int UpdatedLength { get; set; }
-        public int UpdatedMaxSpeed { get; set; }
-        public int UpdatedPrice { get; set; }
+        public string UpdatedShipName { get; set; }
+        public string UpdatedShipClass { get; set; }
+        public string UpdatedShipModel { get; set; }
+        public string UpdatedShipManufacturer { get; set; }
+        public bool UpdatedShipHyperdrive { get; set; }
+        public int? UpdatedShipLength { get; set; }
+        public int? UpdatedShipMaxSpeed { get; set; }
+        public int? UpdatedShipPrice { get; set; }
     }
 }
