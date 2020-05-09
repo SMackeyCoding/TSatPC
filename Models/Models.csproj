@@ -66,6 +66,16 @@
     <Compile Include="PlanetModels\PlanetListItem.cs" />
     <Compile Include="PlanetModels\PlanetUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShipModels\ShipCreateModel.cs" />
+    <Compile Include="ShipModels\ShipDeleteModel.cs" />
+    <Compile Include="ShipModels\ShipDetailModel.cs" />
+    <Compile Include="ShipModels\ShipListModel.cs" />
+    <Compile Include="ShipModels\ShipUpdateModel.cs" />
+    <Compile Include="WeaponModels\WeaponCreateModel.cs" />
+    <Compile Include="WeaponModels\WeaponDeleteModel.cs" />
+    <Compile Include="WeaponModels\WeaponDetailModel.cs" />
+    <Compile Include="WeaponModels\WeaponListModel.cs" />
+    <Compile Include="WeaponModels\WeaponUpdateModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
