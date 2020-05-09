@@ -1,4 +1,4 @@
-﻿using Contracts;
+using Contracts;
 using Data;
 using Data.Entities;
 using Models.WeaponFolder;
@@ -86,6 +86,7 @@ namespace Services
                     entity.Damage = weaponToUpdate.UpdatedDamage;
                 if (weaponToUpdate.UpdatedPrice != null)
                     entity.Price = (int)weaponToUpdate.UpdatedPrice;
+                _ctx.SaveChanges();
             }
         }
     }

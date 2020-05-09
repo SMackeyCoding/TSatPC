@@ -1,4 +1,4 @@
-﻿using Models.WeaponFolder;
+using Models.WeaponFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;

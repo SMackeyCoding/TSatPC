@@ -1,4 +1,4 @@
-﻿using Models.ShipModels;
+using Models.ShipModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

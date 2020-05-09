@@ -1,4 +1,4 @@
-﻿using Models.CharacterModels;
+using Models.CharacterModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
