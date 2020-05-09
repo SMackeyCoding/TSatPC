@@ -32,9 +32,9 @@ namespace Services
             _ctx.SaveChanges();
         }
 
-        public void DeleteShip(ShipDeleteModel shipToDelete)
+        public void DeleteShip(int shipId)
         {
-            var entity = _ctx.Ships.Single(e => e.ShipId == shipToDelete.ShipId);
+            var entity = _ctx.Ships.Single(e => e.ShipId == shipId);
             _ctx.Ships.Remove(entity);
             _ctx.SaveChanges();
         }
@@ -69,9 +69,9 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateShip(ShipUpdateModel shipToUpdate)
+        public void UpdateShip(int shipId, ShipUpdateModel shipToUpdate)
         {
-            var entity = _ctx.Ships.Single(e => e.ShipId == shipToUpdate.ShipId);
+            var entity = _ctx.Ships.Single(e => e.ShipId == shipId);
             if (entity != null)
             {
                 if (shipToUpdate.UpdatedName != null)

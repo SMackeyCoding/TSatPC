@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Data.Entities.Enums;
 
 namespace Models.WeaponFolder
 {
@@ -10,7 +11,7 @@ namespace Models.WeaponFolder
     {
         public int WeaponId { get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
+        public WeaponType Type { get; set; }
         public string Range { get; set; }
         public string WeaponColor { get; set; }
         public string BladeOrEnergyColor { get; set; }

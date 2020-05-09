@@ -31,9 +31,9 @@ namespace Services
             _ctx.SaveChanges();
         }
 
-        public void DeleteWeapon(WeaponDeleteModel weaponToDelete)
+        public void DeleteWeaponById(int weaponId)
         {
-            var entity = _ctx.Weapons.Single(e => e.WeaponId == weaponToDelete.WeaponId);
+            var entity = _ctx.Weapons.Single(e => e.WeaponId == weaponId);
             _ctx.Weapons.Remove(entity);
             _ctx.SaveChanges();
         }
@@ -67,9 +67,9 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateWeapon(WeaponUpdateModel weaponToUpdate)
+        public void UpdateWeapon(int weaponId, WeaponUpdateModel weaponToUpdate)
         {
-            var entity = _ctx.Weapons.Single(e => e.WeaponId == weaponToUpdate.WeaponId);
+            var entity = _ctx.Weapons.Single(e => e.WeaponId == weaponId);
             if (entity != null)
             {
                 if (weaponToUpdate.UpdatedName != null)
@@ -86,6 +86,7 @@ namespace Services
                     entity.Damage = weaponToUpdate.UpdatedDamage;
                 if (weaponToUpdate.UpdatedPrice != null)
                     entity.Price = (int)weaponToUpdate.UpdatedPrice;
+                _ctx.SaveChanges();
             }
         }
     }

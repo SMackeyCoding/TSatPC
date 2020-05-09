@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Data.Entities.Enums;
 
 namespace Models.ShipModels
 {
@@ -10,7 +11,7 @@ namespace Models.ShipModels
     {
         public int ShipId { get; set; }
         public string UpdatedName { get; set; }
-        public string UpdatedClass { get; set; }
+        public ShipClass UpdatedClass { get; set; }
         public string UpdatedModel { get; set; }
         public string UpdatedManufacturer { get; set; }
         public bool UpdatedHyperdrive { get; set; }
