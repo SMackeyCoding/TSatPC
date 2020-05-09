@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContractModels\ContractCreateModel.cs" />
+    <Compile Include="ContractModels\ContractDeleteModel.cs" />
+    <Compile Include="ContractModels\ContractDetailModel.cs" />
+    <Compile Include="ContractModels\ContractListItem.cs" />
+    <Compile Include="ContractModels\ContractUpdateModel.cs" />
     <Compile Include="CharacterModels\CharacterCreateModel.cs" />
     <Compile Include="CharacterModels\CharacterDeleteModel.cs" />
     <Compile Include="CharacterModels\CharacterDetailModel.cs" />
@@ -61,12 +66,24 @@
     <Compile Include="PlanetModels\PlanetListItem.cs" />
     <Compile Include="PlanetModels\PlanetUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShipModels\ShipCreateModel.cs" />
+    <Compile Include="ShipModels\ShipDeleteModel.cs" />
+    <Compile Include="ShipModels\ShipDetailModel.cs" />
+    <Compile Include="ShipModels\ShipListModel.cs" />
+    <Compile Include="ShipModels\ShipUpdateModel.cs" />
+    <Compile Include="WeaponModels\WeaponCreateModel.cs" />
+    <Compile Include="WeaponModels\WeaponDeleteModel.cs" />
+    <Compile Include="WeaponModels\WeaponDetailModel.cs" />
+    <Compile Include="WeaponModels\WeaponListModel.cs" />
+    <Compile Include="WeaponModels\WeaponUpdateModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CharacterModels\" />
+    <Folder Include="PlanetModels\" />
     <Folder Include="ContractModels\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,26 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace Models.ContractModels
 {
-    public class Contract
+    public class ContractCreateModel
     {
         [Key]
         public int ContractId { get; set; }
         public string ContractDescription { get; set; }
         [ForeignKey("Character")]
         public int CharacterId { get; set; }
+        public virtual Character Character { get; set; }
         [ForeignKey("Planet")]
         public int PlanetId { get; set; }
+        public virtual Planet Planet { get; set; }
+
         [ForeignKey("Ship")]
         public int ShipId { get; set; }
+        public virtual Ship Ship { get; set; }
+
         [ForeignKey("Weapon")]
         public int WeaponId { get; set; }
+        public virtual Weapon Weapon { get; set; }
         public int ContractPrice { get; set; }
-
-        public virtual DbSet<Character> Characters { get; set; }
-        public virtual DbSet<Planet> Planets { get; set; }
-        public virtual DbSet<Ship> Ships { get; set; }
-        public virtual DbSet<Weapon> Weapons { get; set; }
     }
 }

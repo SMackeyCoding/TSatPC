@@ -52,7 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICharacterService.cs" />
+    <Compile Include="IContractService.cs" />
     <Compile Include="IPlanetService.cs" />
+    <Compile Include="IShipService.cs" />
+    <Compile Include="IWeaponService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +71,9 @@
       <Project>{52BF77C2-5454-4FE5-BF61-BD1192B88354}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

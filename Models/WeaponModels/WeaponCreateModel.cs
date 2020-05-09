@@ -6,12 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using static Data.Entities.Enums;
 
-namespace Data.Entities
+namespace Models.WeaponFolder
 {
-    public class Weapon
+    public class WeaponCreateModel
     {
-        [Key]
-        public int WeaponId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
