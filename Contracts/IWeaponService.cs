@@ -12,7 +12,7 @@ namespace Contracts
         void CreateWeapon(WeaponCreateModel weaponToCreate);
         IEnumerable<WeaponListModel> GetWeapons();
         WeaponDetailModel GetWeaponDetailById(int weaponId);
-        void UpdateWeapon(WeaponUpdateModel weaponToUpdate);
-        void DeleteWeapon(WeaponDeleteModel weaponToDelete);
+        void UpdateWeapon(int weaponId, WeaponUpdateModel weaponToUpdate);
+        void DeleteWeaponById(int weaponId);
     }
 }
