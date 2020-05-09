@@ -31,9 +31,9 @@ namespace Services
 
         }
 
-        public void DeleteCharacter(CharacterDeleteModel characterToDelete)
+        public void DeleteCharacter(int characterId)
         {
-            var entity = _ctx.Characters.Single(e => e.CharacterId == characterToDelete.CharacterId);
+            var entity = _ctx.Characters.Single(e => e.CharacterId == characterId);
             _ctx.Characters.Remove(entity);
             _ctx.SaveChanges();
         }
@@ -67,9 +67,9 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateCharacter(CharacterUpdateModel characterToUpdate)
+        public void UpdateCharacter(int characterId, CharacterUpdateModel characterToUpdate)
         {
-            var entity = _ctx.Characters.Single(e => e.CharacterId == characterToUpdate.CharacterId);
+            var entity = _ctx.Characters.Single(e => e.CharacterId == characterId);
             if (entity != null)
             {
                 if (characterToUpdate.UpdatedFirstName != null)

@@ -12,7 +12,7 @@ namespace Contracts
         void CreateShip(ShipCreateModel shipToCreate);
         IEnumerable<ShipListModel> GetShips();
         ShipDetailModel GetShipDetailById(int shipId);
-        void UpdateShip(ShipUpdateModel shipToUpdate);
-        void DeleteShip(ShipDeleteModel shipToDelete);
+        void UpdateShip(int shipId, ShipUpdateModel shipToUpdate);
+        void DeleteShip(int shipId);
     }
 }
