@@ -12,7 +12,7 @@ namespace Contracts
         void CreateCharacter(CharacterCreateModel characterToCreate);
         IEnumerable<CharacterListModel> GetCharacters();
         CharacterDetailModel GetCharacterDetailById(int characterId);
-        void UpdateCharacter(CharacterUpdateModel characterToUpdate);
-        void DeleteCharacter(CharacterDeleteModel characterToDelete);
+        void UpdateCharacter(int characterId, CharacterUpdateModel characterToUpdate);
+        void DeleteCharacter(int characterId);
     }
 }

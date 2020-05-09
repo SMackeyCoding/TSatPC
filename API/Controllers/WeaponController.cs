@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.WeaponFolder;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -55,7 +57,7 @@ namespace API.Controllers
             public IHttpActionResult DeleteWeapon([FromUri] int weaponId)
             {
                 var service = CreateWeaponService();
-                service.DeleteWeapon(weaponId);
+                service.DeleteWeaponById(weaponId);
                 return Ok();
             }
         }
