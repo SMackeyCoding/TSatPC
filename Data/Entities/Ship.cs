@@ -8,20 +8,23 @@ using static Data.Entities.Enums;
 
 namespace Data.Entities
 {
-    public class Weapon
+    public class Ship
     {
         [Key]
-        public int WeaponId { get; set; }
+        public int ShipId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
-        public WeaponType Type { get; set; }
+        public ShipClass Class { get; set; }
         [Required]
-        public string Range { get; set; }
+        public string Model { get; set; }
         [Required]
-        public string WeaponColor { get; set; }
-        public string BladeOrEnergyColor { get; set; }
-        public string Damage { get; set; }
+        public string Manufacturer { get; set; }
+        [Required]
+        public bool Hyperdrive { get; set; }
+        public int Length { get; set; }
+        public int MaxSpeed { get; set; }
+        [Required]
         public int Price { get; set; }
     }
 }
