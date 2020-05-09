@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContractService.cs" />
     <Compile Include="CharacterService.cs" />
     <Compile Include="PlanetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
