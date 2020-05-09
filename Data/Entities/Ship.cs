@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,18 +13,18 @@ namespace Data.Entities
         [Key]
         public int ShipId { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string ShipName { get; set; }
         [Required]
-        public ShipClass Class { get; set; }
+        public string ShipClass { get; set; }
         [Required]
-        public string Model { get; set; }
+        public string ShipModel { get; set; }
         [Required]
-        public string Manufacturer { get; set; }
+        public string ShipManufacturer { get; set; }
         [Required]
-        public bool Hyperdrive { get; set; }
-        public int Length { get; set; }
-        public int MaxSpeed { get; set; }
+        public bool ShipHyperdrive { get; set; }
+        public int ShipLength { get; set; }
+        public int ShipMaxSpeed { get; set; }
         [Required]
-        public int Price { get; set; }
+        public int ShipPrice { get; set; }
     }
 }

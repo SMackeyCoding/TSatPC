@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.ShipModels;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,6 +9,7 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/Ships")]
     public class ShipController : ApiController
     {
         private ShipService CreateShipService()
@@ -16,7 +19,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("Create")]
-        public IHttpActionResult CreateShip(ShipCreateModel shipToCreate)
+        public IHttpActionResult CreateShip([FromBody] ShipCreateModel shipToCreate)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -26,10 +29,10 @@ namespace API.Controllers
         }
         [HttpGet]
         [Route("List")]
-        public IHttpActionResult GetContractList()
+        public IHttpActionResult GetShipList()
         {
             var service = CreateShipService();
-            var ships = service.GetShips();
+            var ships = service.GetAllShips();
             return Ok(ships);
         }
         [HttpGet]
@@ -42,20 +45,20 @@ namespace API.Controllers
         }
         [HttpPut]
         [Route("{ShipId:int}")]
-        public IHttpActionResult UpdateShip([FromUri] int shipId, ShipUpdateModel shipToUpdate)
+        public IHttpActionResult UpdateShipById([FromUri] int shipId, ShipUpdateModel shipToUpdate)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             var service = CreateShipService();
-            service.UpdateShip(shipId, shipToUpdate);
+            service.UpdateShipById(shipId, shipToUpdate);
             return Ok();
         }
         [HttpDelete]
         [Route("{ShipId:int}")]
-        public IHttpActionResult DeleteShip([FromUri] int shipId)
+        public IHttpActionResult DeleteShipById([FromUri] int shipId)
         {
             var service = CreateShipService();
-            service.DeleteShip(shipId);
+            service.DeleteShipById(shipId);
             return Ok();
         }
     }
