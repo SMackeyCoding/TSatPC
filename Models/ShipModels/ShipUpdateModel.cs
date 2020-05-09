@@ -11,12 +11,12 @@ namespace Models.ShipModels
     {
         public int ShipId { get; set; }
         public string UpdatedName { get; set; }
-        public ShipClass UpdatedClass { get; set; }
+        public ShipClass? UpdatedClass { get; set; }
         public string UpdatedModel { get; set; }
         public string UpdatedManufacturer { get; set; }
-        public bool UpdatedHyperdrive { get; set; }
-        public int UpdatedLength { get; set; }
-        public int UpdatedMaxSpeed { get; set; }
-        public int UpdatedPrice { get; set; }
+        public bool? UpdatedHyperdrive { get; set; }
+        public int? UpdatedLength { get; set; }
+        public int? UpdatedMaxSpeed { get; set; }
+        public int? UpdatedPrice { get; set; }
     }
 }

@@ -11,11 +11,11 @@ namespace Models.WeaponFolder
     {
         public int WeaponId { get; set; }
         public string UpdatedName { get; set; }
-        public WeaponType UpdatedType { get; set; }
+        public WeaponType? UpdatedType { get; set; }
         public string UpdatedRange { get; set; }
         public string UpdatedWeaponColor { get; set; }
         public string UpdatedBladeOrEnergyColor { get; set; }
         public string UpdatedDamage { get; set; }
-        public int UpdatedPrice { get; set; }
+        public int? UpdatedPrice { get; set; }
     }
 }

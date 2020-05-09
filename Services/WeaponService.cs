@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Data.Entities.Enums;
 
 namespace Services
 {
@@ -67,6 +68,17 @@ namespace Services
             return returnList;
         }
 
+        //public IEnumerable<WeaponListModel> GetWeaponsByType(WeaponType type)
+        //{
+        //    var i = _ctx.Weapons.Select(e => e.Type == type);
+        //    var returnList = new WeaponListModel()
+        //    {
+        //        WeaponId = i.WeaponId,
+        //        Name = i.Name,
+        //        Price = i.Price
+        //    })
+        //}
+
         public void UpdateWeapon(int weaponId, WeaponUpdateModel weaponToUpdate)
         {
             var entity = _ctx.Weapons.Single(e => e.WeaponId == weaponId);
@@ -75,7 +87,7 @@ namespace Services
                 if (weaponToUpdate.UpdatedName != null)
                     entity.Name = weaponToUpdate.UpdatedName;
                 if (weaponToUpdate.UpdatedType != null)
-                    entity.Type = weaponToUpdate.UpdatedType;
+                    entity.Type = (WeaponType)weaponToUpdate.UpdatedType;
                 if (weaponToUpdate.UpdatedRange != null)
                     entity.Range = weaponToUpdate.UpdatedRange;
                 if (weaponToUpdate.UpdatedWeaponColor != null)
