@@ -1,4 +1,4 @@
-﻿using Models.WeaponFolder;
+using Models.WeaponFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace Contracts
     public interface IWeaponService
     {
         void CreateWeapon(WeaponCreateModel weaponToCreate);
-        IEnumerable<WeaponListModel> GetWeapons();
+        IEnumerable<WeaponListModel> GetAllWeapons();
         WeaponDetailModel GetWeaponDetailById(int weaponId);
-        void UpdateWeapon(int weaponId, WeaponUpdateModel weaponToUpdate);
+        void UpdateWeaponById(int weaponId, WeaponUpdateModel weaponToUpdate);
         void DeleteWeaponById(int weaponId);
     }
 }

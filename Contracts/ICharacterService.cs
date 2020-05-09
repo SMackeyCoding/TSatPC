@@ -1,4 +1,4 @@
-﻿using Models.CharacterModels;
+using Models.CharacterModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace Contracts
     public interface ICharacterService
     {
         void CreateCharacter(CharacterCreateModel characterToCreate);
-        IEnumerable<CharacterListModel> GetCharacters();
+        IEnumerable<CharacterListModel> GetAllCharacters();
         CharacterDetailModel GetCharacterDetailById(int characterId);
-        void UpdateCharacter(int characterId, CharacterUpdateModel characterToUpdate);
-        void DeleteCharacter(int characterId);
+        void UpdateCharacterById(int characterId, CharacterUpdateModel characterToUpdate);
+        void DeleteCharacterById(int characterId);
     }
 }
