@@ -74,25 +74,6 @@ namespace Services
         {
             var entity = _ctx.Ships.Single(e => e.ShipId == shipId);
             if (entity != null)
-            {
-<<<<<<< HEAD
-                if (shipToUpdate.UpdatedName != null)
-                    entity.Name = shipToUpdate.UpdatedName;
-                if (shipToUpdate.UpdatedClass != null)
-                    entity.Class = (ShipClass)shipToUpdate.UpdatedClass;
-                if (shipToUpdate.UpdatedModel != null)
-                    entity.Model = shipToUpdate.UpdatedModel;
-                if (shipToUpdate.UpdatedManufacturer != null)
-                    entity.Manufacturer = shipToUpdate.UpdatedManufacturer;
-                if (shipToUpdate.UpdatedHyperdrive != null)
-                    entity.Hyperdrive = (bool)shipToUpdate.UpdatedHyperdrive;
-                if (shipToUpdate.UpdatedLength != null)
-                    entity.Length = (int)shipToUpdate.UpdatedLength;
-                if (shipToUpdate.UpdatedMaxSpeed != null)
-                    entity.MaxSpeed = (int)shipToUpdate.UpdatedMaxSpeed;
-                if (shipToUpdate.UpdatedPrice != null)
-                    entity.Price = (int)shipToUpdate.UpdatedPrice;
-=======
                 if (shipToUpdate.UpdatedShipName != null)
                     entity.ShipName = shipToUpdate.UpdatedShipName;
                 if (shipToUpdate.UpdatedShipClass != null)
@@ -102,17 +83,16 @@ namespace Services
                 if (shipToUpdate.UpdatedShipManufacturer != null)
                     entity.ShipManufacturer = shipToUpdate.UpdatedShipManufacturer;
                 if (shipToUpdate.UpdatedShipHyperdrive != null)
-                entity.ShipHyperdrive = shipToUpdate.UpdatedShipHyperdrive;
+                entity.ShipHyperdrive = (bool)shipToUpdate.UpdatedShipHyperdrive;
                 if (shipToUpdate.UpdatedShipLength != null)
                     entity.ShipLength = (int)shipToUpdate.UpdatedShipLength;
                 if (shipToUpdate.UpdatedShipMaxSpeed != null)
                     entity.ShipMaxSpeed = (int)shipToUpdate.UpdatedShipMaxSpeed;
                 if (shipToUpdate.UpdatedShipPrice != null)
                     entity.ShipPrice = (int)shipToUpdate.UpdatedShipPrice;
->>>>>>> 169c6e55268ed7acecc17c176419f383fcfc7ac5
                 _ctx.SaveChanges();
             }
         }
     }
-}
+
 

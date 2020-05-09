@@ -70,13 +70,15 @@ namespace Services
 
         //public IEnumerable<WeaponListModel> GetWeaponsByType(WeaponType type)
         //{
-        //    var i = _ctx.Weapons.Select(e => e.Type == type);
-        //    var returnList = new WeaponListModel()
+        //    var weaponsList = _ctx.Weapons.Select(e => new WeaponListModel()
         //    {
-        //        WeaponId = i.WeaponId,
-        //        Name = i.Name,
-        //        Price = i.Price
-        //    })
+        //        Name = e.Name
+        //    }).ToList();
+        //    foreach (WeaponType type in weaponsList)
+        //    {
+
+        //    }
+
         //}
 
         public void UpdateWeaponById(int weaponId, WeaponUpdateModel weaponToUpdate)

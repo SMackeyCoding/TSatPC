@@ -9,8 +9,6 @@ using static Data.Entities.Enums;
 namespace Models.ShipModels
 {
     public class ShipCreateModel
-{
-    public class ShipCreateModel
     {
         [Required]
         public string ShipName { get; set; }
