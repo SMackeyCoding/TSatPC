@@ -1,4 +1,4 @@
-﻿using Models.ShipModels;
+using Models.ShipModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace Contracts
     public interface IShipService
     {
         void CreateShip(ShipCreateModel shipToCreate);
-        IEnumerable<ShipListModel> GetShips();
+        IEnumerable<ShipListModel> GetAllShips();
         ShipDetailModel GetShipDetailById(int shipId);
-        void UpdateShip(int shipId, ShipUpdateModel shipToUpdate);
-        void DeleteShip(int shipId);
+        void UpdateShipById(int shipId, ShipUpdateModel shipToUpdate);
+        void DeleteShipById(int shipId);
     }
 }

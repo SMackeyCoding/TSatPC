@@ -1,4 +1,4 @@
-﻿using Contracts;
+using Contracts;
 using Data;
 using Data.Entities;
 using Models.WeaponFolder;
@@ -56,7 +56,7 @@ namespace Services
             return entity;
         }
 
-        public IEnumerable<WeaponListModel> GetWeapons()
+        public IEnumerable<WeaponListModel> GetAllWeapons()
         {
             var returnList = _ctx.Weapons.Select(e => new WeaponListModel()
             {
@@ -79,7 +79,7 @@ namespace Services
         //    })
         //}
 
-        public void UpdateWeapon(int weaponId, WeaponUpdateModel weaponToUpdate)
+        public void UpdateWeaponById(int weaponId, WeaponUpdateModel weaponToUpdate)
         {
             var entity = _ctx.Weapons.Single(e => e.WeaponId == weaponId);
             if (entity != null)
