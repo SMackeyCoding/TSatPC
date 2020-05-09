@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Contracts;
+using Data;
 using Data.Entities;
 using Models.ContractModels;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class ContractService
+    public class ContractService : IContractService
     {
         private readonly ApplicationDbContext _ctx = new ApplicationDbContext();
 
@@ -28,15 +29,11 @@ namespace Services
             _ctx.SaveChanges();
         }
 
-        public void DeleteContract(ContractDeleteModel contractToDelete)
+        public void DeleteContractById(int contractId)
         {
-            var entity = _ctx.Contracts.Single(e => e.ContractId == contractToDelete.ContractId);
+            var entity = _ctx.Contracts.Single(e => e.ContractId == contractId);
             _ctx.Contracts.Remove(entity);
             _ctx.SaveChanges();
-        }
-        public void DeleteContract(int contractId)
-        {
-            throw new NotImplementedException();
         }
 
         public ContractDetailModel GetContractDetailById(int contractId)
@@ -55,7 +52,7 @@ namespace Services
             return entity;
         }
 
-        public IEnumerable<ContractListItem> GetContracts()
+        public IEnumerable<ContractListItem> GetAllContracts()
         {
             var returnList = _ctx.Contracts.Select(e => new ContractListItem()
             {
@@ -66,7 +63,7 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateContract(int contractId, ContractUpdateModel contractToUpdate)
+        public void UpdateContractById(int contractId, ContractUpdateModel contractToUpdate)
         {
             var entity = _ctx.Contracts.Single(e => e.ContractId == contractToUpdate.ContractId);
             if (entity != null)
@@ -84,5 +81,6 @@ namespace Services
                 _ctx.SaveChanges();
             }
         }
+
     }
 }
