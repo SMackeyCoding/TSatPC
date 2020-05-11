@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/contracts")]
     public class ContractController : ApiController
     {
         private ContractService CreateContractService()
