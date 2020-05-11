@@ -61,6 +61,11 @@
     <Compile Include="CharacterModels\CharacterDetailModel.cs" />
     <Compile Include="CharacterModels\CharacterListModel.cs" />
     <Compile Include="CharacterModels\CharacterUpdateModel.cs" />
+    <Compile Include="FavoriteModels\FavoritesCreateModel.cs" />
+    <Compile Include="FavoriteModels\FavoritesDeleteModel.cs" />
+    <Compile Include="FavoriteModels\FavoritesDetailModel.cs" />
+    <Compile Include="FavoriteModels\FavoritesListItem.cs" />
+    <Compile Include="FavoriteModels\FavoritesUpdateModel.cs" />
     <Compile Include="PlanetModels\PlanetCreateModel.cs" />
     <Compile Include="PlanetModels\PlanetDetailModel.cs" />
     <Compile Include="PlanetModels\PlanetListItem.cs" />
@@ -81,11 +86,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CharacterModels\" />
-    <Folder Include="PlanetModels\" />
-    <Folder Include="ContractModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{88fd165d-39ca-4631-ab1d-bdbfa20009a5}</Project>

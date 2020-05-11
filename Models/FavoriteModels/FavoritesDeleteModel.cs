@@ -1,26 +1,29 @@
 ﻿using Data.Entities;
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Models.ContractModels
+namespace Models.FavoriteModels
 {
-    public class ContractCreateModel
+    class FavoritesDeleteModel
     {
-        public string ContractDescription { get; set; }
-        [ForeignKey("Character")]
+        [ForeignKey("FavoriteCharacter")]
         public int CharacterId { get; set; }
         public virtual Character Character { get; set; }
-        [ForeignKey("Planet")]
+
+        [ForeignKey("FavoritePlanet")]
         public int PlanetId { get; set; }
         public virtual Planet Planet { get; set; }
 
-        [ForeignKey("Ship")]
+        [ForeignKey("FavoriteShip")]
         public int ShipId { get; set; }
         public virtual Ship Ship { get; set; }
 
-        [ForeignKey("Weapon")]
+        [ForeignKey("FavoriteWeapon")]
         public int WeaponId { get; set; }
         public virtual Weapon Weapon { get; set; }
-        public int ContractPrice { get; set; }
     }
 }
