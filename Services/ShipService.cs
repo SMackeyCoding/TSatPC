@@ -77,7 +77,7 @@ namespace Services
                 if (shipToUpdate.UpdatedShipName != null)
                     entity.ShipName = shipToUpdate.UpdatedShipName;
                 if (shipToUpdate.UpdatedShipClass != null)
-                    entity.ShipClass = shipToUpdate.UpdatedShipClass;
+                    entity.ShipClass = (ShipClass)shipToUpdate.UpdatedShipClass;
                 if (shipToUpdate.UpdatedShipModel != null)
                     entity.ShipModel = shipToUpdate.UpdatedShipModel;
                 if (shipToUpdate.UpdatedShipManufacturer != null)

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Data.Entities.Enums;
 
 namespace Services
 {
@@ -21,10 +22,14 @@ namespace Services
                 ContractDescription = contractToCreate.ContractDescription,
                 CharacterId = contractToCreate.CharacterId,
                 PlanetId = contractToCreate.PlanetId,
-                ShipId = contractToCreate.ShipId,
-                WeaponId = contractToCreate.WeaponId,
-                ContractPrice = contractToCreate.ContractPrice,
             };
+            if (contractToCreate.ShipId != null)
+                entity.ShipId = (int)contractToCreate.ShipId;
+            else { entity.ShipId = entity.Character.DefaultShipId; }
+            if (contractToCreate.WeaponId != null)
+                entity.WeaponId = (int)contractToCreate.WeaponId;
+            else { entity.WeaponId = entity.Character.DefaultWeaponId; }
+            entity.ContractPrice = entity.Character.Price + entity.Planet.Price + entity.Ship.ShipPrice + entity.Weapon.Price;
             _ctx.Contracts.Add(entity);
             _ctx.SaveChanges();
         }
@@ -48,6 +53,7 @@ namespace Services
                 ShipId = i.ShipId,
                 WeaponId = i.WeaponId,
                 ContractPrice = i.ContractPrice,
+                ContractStatus = i.ContractStatus
             };
             return entity;
         }
@@ -59,6 +65,7 @@ namespace Services
                 ContractId = e.ContractId,
                 ContractDescription = e.ContractDescription,
                 ContractPrice = e.ContractPrice,
+                ContractStatus = e.ContractStatus
             }).ToList();
             return returnList;
         }
@@ -78,6 +85,9 @@ namespace Services
                     entity.ShipId = (int)contractToUpdate.ShipId;
                 if (contractToUpdate.WeaponId != null)
                     entity.ShipId = (int)contractToUpdate.WeaponId;
+                if (contractToUpdate.ContractStatus != null)
+                    entity.ContractStatus = (ContractStatus)contractToUpdate.ContractStatus;
+                entity.ContractPrice = entity.Character.Price + entity.Planet.Price + entity.Ship.ShipPrice + entity.Weapon.Price;
                 _ctx.SaveChanges();
             }
         }

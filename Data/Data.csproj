@@ -95,6 +95,14 @@
     <Compile Include="Migrations\202005112151177_iniial migration.Designer.cs">
       <DependentUpon>202005112151177_iniial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005112213343_contract status added.cs" />
+    <Compile Include="Migrations\202005112213343_contract status added.Designer.cs">
+      <DependentUpon>202005112213343_contract status added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005112245468_updated ShipClass to enum type, added ContractStatus enum type.cs" />
+    <Compile Include="Migrations\202005112245468_updated ShipClass to enum type, added ContractStatus enum type.Designer.cs">
+      <DependentUpon>202005112245468_updated ShipClass to enum type, added ContractStatus enum type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -105,6 +113,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005112151177_iniial migration.resx">
       <DependentUpon>202005112151177_iniial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005112213343_contract status added.resx">
+      <DependentUpon>202005112213343_contract status added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005112245468_updated ShipClass to enum type, added ContractStatus enum type.resx">
+      <DependentUpon>202005112245468_updated ShipClass to enum type, added ContractStatus enum type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -27,7 +27,13 @@ namespace Data.Entities
             Yacht,
             Starfighter,
             Bomber,
-            Gunship,
+            Gunship
+        }
+        public enum ContractStatus
+        {
+            InProgress=1,
+            Completed,
+            Failed
         }
     }
 }
