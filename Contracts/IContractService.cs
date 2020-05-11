@@ -14,5 +14,7 @@ namespace Contracts
         ContractDetailModel GetContractDetailById(int contractId);
         void UpdateContractById(int contractId, ContractUpdateModel contractToUpdate);
         void DeleteContractById(int contractId);
+        IEnumerable<ContractListItem> GetContractsByCharacterId(int characterId);
+        SuccessRateModel GetSuccessRateByCharacterId(int characterId);
     }
 }
