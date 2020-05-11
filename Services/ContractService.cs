@@ -91,6 +91,35 @@ namespace Services
                 _ctx.SaveChanges();
             }
         }
-
+        public IEnumerable<ContractListItem> GetContractsByCharacterId(int characterId)
+        {
+            var returnList = _ctx.Contracts.Where(i => i.CharacterId == characterId).Select(e => new ContractListItem()
+            {
+                ContractId = e.ContractId,
+                ContractDescription = e.ContractDescription,
+                ContractPrice = e.ContractPrice,
+                ContractStatus = e.ContractStatus
+            }).ToList();
+            return returnList;
+        }
+        public SuccessRateModel GetSuccessRateByCharacterId(int characterId)
+        {
+            SuccessRateModel entity = new SuccessRateModel();
+            List<ContractListItem> listOfContracts = (List<ContractListItem>)GetContractsByCharacterId(characterId);
+            double completedContracts = 0;
+            double failedContracts = 0;
+            for(int i = 0; i < listOfContracts.Count(); i++)
+            {
+                var nextContract = listOfContracts[i];
+                if (nextContract.ContractStatus == ContractStatus.Completed)
+                    completedContracts++;
+                else if (nextContract.ContractStatus == ContractStatus.Failed)
+                    failedContracts++;
+            }
+            double finalizedContracts = completedContracts + failedContracts;
+            int successRate = Convert.ToInt32((completedContracts / finalizedContracts) * 100);
+            entity.SuccessRate = $"{successRate}%";
+            return entity;
+        }
     }
 }
