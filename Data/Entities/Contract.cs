@@ -16,17 +16,16 @@ namespace Data.Entities
         public string ContractDescription { get; set; }
         [ForeignKey("Character")]
         public int CharacterId { get; set; }
+        public virtual Character Character { get; set; }
         [ForeignKey("Planet")]
         public int PlanetId { get; set; }
+        public virtual Planet Planet { get; set; }
         [ForeignKey("Ship")]
         public int ShipId { get; set; }
+        public virtual Ship Ship { get; set; }
         [ForeignKey("Weapon")]
         public int WeaponId { get; set; }
+        public virtual Weapon Weapon { get; set; }
         public int ContractPrice { get; set; }
-
-        public virtual DbSet<Character> Characters { get; set; }
-        public virtual DbSet<Planet> Planets { get; set; }
-        public virtual DbSet<Ship> Ships { get; set; }
-        public virtual DbSet<Weapon> Weapons { get; set; }
     }
 }
