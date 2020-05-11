@@ -43,6 +43,22 @@ namespace API.Controllers
             var contractDetail = service.GetContractDetailById(contractId);
             return Ok(contractDetail);
         }
+        [HttpGet]
+        [Route("{CharacterId:int}")]
+        public IHttpActionResult GetCharacterPlanetHistory([FromUri] int characterId)
+        {
+            var service = CreateContractService();
+            var characterHistory = service.GetCharacterPlanetHistory(characterId);
+            return Ok(characterHistory);
+        }
+        [HttpGet]
+        [Route("{ShipId:int")]
+        public IHttpActionResult GetShipPlanetHistory([FromUri] int shipId)
+        {
+            var service = CreateContractService();
+            var shipHistory = service.GetShipPlanetHistory(shipId);
+            return Ok(shipHistory);
+        }
         [HttpPut]
         [Route("{ContractId:int}")]
         public IHttpActionResult UpdateContract([FromUri] int contractId, ContractUpdateModel contractToUpdate)

@@ -63,9 +63,29 @@ namespace Services
             return returnList;
         }
 
+        public IEnumerable<ContractCharacterPlanetHistoryModel> GetCharacterPlanetHistory(int characterId)
+        {
+            List<Contract> characterHistory = (List<Contract>)_ctx.Contracts.Select(e => e.CharacterId == characterId);
+            var returnList = characterHistory.Select(e => new ContractCharacterPlanetHistoryModel()
+            {
+                Planet = e.Planet.PlanetName
+            }).ToList();
+            return returnList;
+        }
+
+        public IEnumerable<ContractShipPlanetHistoryModel> GetShipPlanetHistory(int shipId)
+        {
+            List<Contract> shipHistory = (List<Contract>)_ctx.Contracts.Select(e => e.ShipId == shipId);
+            var returnList = shipHistory.Select(e => new ContractShipPlanetHistoryModel()
+            {
+                Planet = e.Planet.PlanetName
+            }).ToList();
+            return returnList;
+        }
+
         public void UpdateContractById(int contractId, ContractUpdateModel contractToUpdate)
         {
-            var entity = _ctx.Contracts.Single(e => e.ContractId == contractToUpdate.ContractId);
+            var entity = _ctx.Contracts.Single(e => e.ContractId == contractId);
             if (entity != null)
             {
                 if (contractToUpdate.ContractDescription != null)

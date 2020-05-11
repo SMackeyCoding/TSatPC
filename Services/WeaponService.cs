@@ -2,6 +2,7 @@ using Contracts;
 using Data;
 using Data.Entities;
 using Models.WeaponFolder;
+using Models.WeaponModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,9 +69,9 @@ namespace Services
             return returnList;
         }
 
-        //public IEnumerable<WeaponListModel> GetWeaponsByType(WeaponType type)
+        //public IEnumerable<WeaponGetByType> GetWeaponsByType(WeaponType type)
         //{
-        //    var weaponsList = _ctx.Weapons.Select(e => new WeaponListModel()
+        //    var weaponsList = _ctx.Weapons.Select(e => new WeaponGetByType()
         //    {
         //        Name = e.Name
         //    }).ToList();
