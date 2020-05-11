@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Data.Entities.Enums;
 
 namespace Data.Entities
 {
@@ -27,5 +28,6 @@ namespace Data.Entities
         public int WeaponId { get; set; }
         public virtual Weapon Weapon { get; set; }
         public int ContractPrice { get; set; }
+        public ContractStatus ContractStatus { get; set;  } = ContractStatus.InProgress;
     }
 }
