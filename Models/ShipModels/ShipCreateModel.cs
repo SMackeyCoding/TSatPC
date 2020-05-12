@@ -13,7 +13,7 @@ namespace Models.ShipModels
         [Required]
         public string ShipName { get; set; }
         [Required]
-        public string ShipClass { get; set; }
+        public ShipClass ShipClass { get; set; }
         [Required]
         public string ShipModel { get; set; }
         [Required]

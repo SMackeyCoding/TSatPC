@@ -69,18 +69,15 @@ namespace Services
             return returnList;
         }
 
-        //public IEnumerable<WeaponGetByType> GetWeaponsByType(WeaponType type)
-        //{
-        //    var weaponsList = _ctx.Weapons.Select(e => new WeaponGetByType()
-        //    {
-        //        Name = e.Name
-        //    }).ToList();
-        //    foreach (WeaponType type in weaponsList)
-        //    {
-
-        //    }
-
-        //}
+        public IEnumerable<WeaponGetByType> GetWeaponByType(WeaponType type)
+        {
+            List<Weapon> weapons = (List<Weapon>)_ctx.Weapons.Select(e => e.Type == type);
+            var returnList = weapons.Select(e => new WeaponGetByType()
+            {
+                Name = e.Name
+            }).ToList();
+            return returnList;
+        }
 
         public void UpdateWeaponById(int weaponId, WeaponUpdateModel weaponToUpdate)
         {

@@ -10,7 +10,7 @@ namespace Models.ShipModels
     public class ShipUpdateModel
     {
         public string UpdatedShipName { get; set; }
-        public string UpdatedShipClass { get; set; }
+        public ShipClass? UpdatedShipClass { get; set; }
         public string UpdatedShipModel { get; set; }
         public string UpdatedShipManufacturer { get; set; }
         public bool? UpdatedShipHyperdrive { get; set; }
