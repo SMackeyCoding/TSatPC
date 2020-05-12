@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Entities
 {
-    public class Favorites
+    public class Favorite
     {
         [Key]
         public int FavoritesId { get; set; }
