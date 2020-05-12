@@ -33,7 +33,7 @@ namespace API.Controllers
         {
             var service = CreateFavoritesService();
             var contracts = service.GetAllFavorites();
-            return Ok(favorites);
+            return Ok(contracts);
         }
         [HttpGet]
         [Route("{FavoritesId:int}")]

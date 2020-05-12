@@ -16,7 +16,7 @@ namespace Services
 
     public void CreateFavorite(FavoritesCreateModel favoriteToCreate)
     {
-        var entity = new Favorites()
+        var entity = new Favorite()
         {
             FavoritesId = favoriteToCreate.CharacterId,
             PlanetId = favoriteToCreate.PlanetId,
