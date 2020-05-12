@@ -70,6 +70,16 @@ namespace Services
             return returnList;
         }
 
+        public IEnumerable<ShipGetByType> GetShipByClass(ShipClass shipclass)
+        {
+            List<Ship> ships = (List<Ship>)_ctx.Ships.Select(e => e.ShipClass == shipclass);
+            var returnList = ships.Select(e => new ShipGetByType()
+            {
+                Name = e.ShipName
+            }).ToList();
+            return returnList;
+        }
+
         public void UpdateShipById(int shipId, ShipUpdateModel shipToUpdate)
         {
             var entity = _ctx.Ships.Single(e => e.ShipId == shipId);

@@ -54,7 +54,9 @@
     <Compile Include="ContractModels\ContractCreateModel.cs" />
     <Compile Include="ContractModels\ContractDeleteModel.cs" />
     <Compile Include="ContractModels\ContractDetailModel.cs" />
+    <Compile Include="ContractModels\ContractCharacterPlanetHistoryModel.cs" />
     <Compile Include="ContractModels\ContractListItem.cs" />
+    <Compile Include="ContractModels\ContractShipPlanetHistoryModel.cs" />
     <Compile Include="ContractModels\ContractUpdateModel.cs" />
     <Compile Include="CharacterModels\CharacterCreateModel.cs" />
     <Compile Include="CharacterModels\CharacterDeleteModel.cs" />
@@ -70,11 +72,13 @@
     <Compile Include="ShipModels\ShipCreateModel.cs" />
     <Compile Include="ShipModels\ShipDeleteModel.cs" />
     <Compile Include="ShipModels\ShipDetailModel.cs" />
+    <Compile Include="ShipModels\ShipGetByType.cs" />
     <Compile Include="ShipModels\ShipListModel.cs" />
     <Compile Include="ShipModels\ShipUpdateModel.cs" />
     <Compile Include="WeaponModels\WeaponCreateModel.cs" />
     <Compile Include="WeaponModels\WeaponDeleteModel.cs" />
     <Compile Include="WeaponModels\WeaponDetailModel.cs" />
+    <Compile Include="WeaponModels\WeaponGetByType.cs" />
     <Compile Include="WeaponModels\WeaponListModel.cs" />
     <Compile Include="WeaponModels\WeaponUpdateModel.cs" />
   </ItemGroup>
