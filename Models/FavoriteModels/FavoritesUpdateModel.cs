@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Models.FavoriteModels
 {
-    class FavoritesUpdateModel
+    public class FavoritesUpdateModel
     {
         [Key]
         public int FavoritesId { get; set; }

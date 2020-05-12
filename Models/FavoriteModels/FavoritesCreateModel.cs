@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Models.FavoriteModels
 {
-    class FavoritesCreateModel
+    public class FavoritesCreateModel
     {
         [ForeignKey("FavoriteCharacter")]
         public int CharacterId { get; set; }

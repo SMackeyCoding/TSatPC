@@ -9,25 +9,21 @@ using System.Threading.Tasks;
 
 namespace Models.FavoriteModels
 {
-    class FavoritesDetailModel
+    public class FavoritesDetailModel
     {
         [Key]
         public int FavoritesId { get; set; }
 
         [ForeignKey("FavoriteCharacter")]
         public int CharacterId { get; set; }
-        public virtual Character Character { get; set; }
 
         [ForeignKey("FavoritePlanet")]
         public int PlanetId { get; set; }
-        public virtual Planet Planet { get; set; }
 
         [ForeignKey("FavoriteShip")]
         public int ShipId { get; set; }
-        public virtual Ship Ship { get; set; }
 
         [ForeignKey("FavoriteWeapon")]
         public int WeaponId { get; set; }
-        public virtual Weapon Weapon { get; set; }
     }
 }
