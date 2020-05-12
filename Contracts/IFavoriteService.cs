@@ -11,8 +11,8 @@ namespace Contracts
     {
         void CreateFavorite(FavoritesCreateModel favoriteToCreate);
         IEnumerable<FavoritesListItem> GetAllFavorites();
-        FavoritesDetailModel GetFavoritesDetailById(int favoriteId);
-        void UpdateFavoritesById(int favoriteId, FavoritesUpdateModel favoriteToUpdate);
-        void DeleteFavoritesById(int favoriteId);
+        FavoritesDetailModel GetFavoritesDetailById(int favoritesId);
+        void UpdateFavoritesById(int favoritesId, FavoritesUpdateModel favoriteToUpdate);
+        void DeleteFavoritesById(int favoritesId);
     }
 }

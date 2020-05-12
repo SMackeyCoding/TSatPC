@@ -27,19 +27,19 @@ namespace Services
         _ctx.SaveChanges();
     }
 
-    public void DeleteFavoritesById(int favoriteId)
+    public void DeleteFavoritesById(int favoritesId)
     {
-        var entity = _ctx.Favorites.Single(e => e.FavoriteId == favoriteId);
+        var entity = _ctx.Favorites.Single(e => e.FavoritesId == favoritesId);
         _ctx.Favorites.Remove(entity);
         _ctx.SaveChanges();
     }
 
-    public FavoritesDetailModel GetFavoritesDetailById(int favoriteId)
+    public FavoritesDetailModel GetFavoritesDetailById(int favoritesId)
     {
-        var i = _ctx.Favorites.Single(e => e.FavoriteId == favoriteId);
-        var entity = new FavoriteDetailModel()
+        var i = _ctx.Favorites.Single(e => e.FavoritesId == favoritesId);
+        var entity = new FavoritesDetailModel()
         {
-            FavoriteId = i.FavoriteId,
+            FavoritesId = i.FavoritesId,
             CharacterId = i.CharacterId,
             PlanetId = i.PlanetId,
             ShipId = i.ShipId,
@@ -52,7 +52,7 @@ namespace Services
     {
         var returnList = _ctx.Favorites.Select(e => new FavoritesListItem()
         {
-            FavoritesId = e.FavoriteId,
+            FavoritesId = e.FavoritesId,
             CharacterId = e.CharacterId,
             PlanetId = e.PlanetId,
             ShipId = e.ShipId,
@@ -61,9 +61,9 @@ namespace Services
         return returnList;
     }
 
-    public void UpdateFavoritesById(int favoriteId, FavoritesUpdateModel favoriteToUpdate)
+    public void UpdateFavoritesById(int favoritesId, FavoritesUpdateModel favoriteToUpdate)
     {
-        var entity = _ctx.Favorites.Single(e => e.FavoriteId == favoriteToUpdate.ContractId);
+        var entity = _ctx.Favorites.Single(e => e.FavoritesId == favoriteToUpdate.FavoritesId);
         if (entity != null)
         {
             if (favoriteToUpdate.CharacterId != null)

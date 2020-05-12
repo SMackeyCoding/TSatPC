@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/favorites")]
     public class FavoritesController : ApiController
     {
         private FavoriteService CreateFavoritesService()
