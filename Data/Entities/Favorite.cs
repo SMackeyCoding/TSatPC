@@ -13,19 +13,19 @@ namespace Data.Entities
         [Key]
         public int FavoritesId { get; set; }
 
-        [ForeignKey("FavoriteCharacter")]
+        [ForeignKey("Character")]
         public int CharacterId { get; set; }
         public virtual Character Character { get; set; }
 
-        [ForeignKey("FavoritePlanet")]
+        [ForeignKey("Planet")]
         public int PlanetId { get; set; }
         public virtual Planet Planet { get; set; }
 
-        [ForeignKey("FavoriteShip")]
+        [ForeignKey("Ship")]
         public int ShipId { get; set; }
         public virtual Ship Ship { get; set; }
 
-        [ForeignKey("FavoriteWeapon")]
+        [ForeignKey("Weapon")]
         public int WeaponId { get; set; }
         public virtual Weapon Weapon { get; set; }
     }
