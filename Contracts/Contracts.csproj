@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICharacterService.cs" />
+    <Compile Include="ICommentService.cs" />
     <Compile Include="IContractService.cs" />
     <Compile Include="IFavoriteService.cs" />
     <Compile Include="IPlanetService.cs" />
