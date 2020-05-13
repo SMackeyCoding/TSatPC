@@ -45,7 +45,7 @@ namespace API.Controllers
             return Ok(weaponDetail);
         }
         [HttpGet]
-        [Route("{type:WeaponType")]
+        [Route("{Type}")]
         public IHttpActionResult GetWeaponByType([FromUri] WeaponType type)
         {
             var service = CreateWeaponService();

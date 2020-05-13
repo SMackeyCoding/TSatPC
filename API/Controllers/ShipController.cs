@@ -45,7 +45,7 @@ namespace API.Controllers
             return Ok(shipDetail);
         }
         [HttpGet]
-        [Route("{ShipClass: ShipClass")]
+        [Route("{ShipType}")]
         public IHttpActionResult GetShipByClass([FromUri] ShipClass shipType)
         {
             var service = CreateShipService();
