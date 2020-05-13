@@ -52,7 +52,7 @@ namespace API.Controllers
             return Ok(characterHistory);
         }
         [HttpGet]
-        [Route("{ShipId:int")]
+        [Route("{ShipId:int}")]
         public IHttpActionResult GetShipPlanetHistory([FromUri] int shipId)
         {
             var service = CreateContractService();
