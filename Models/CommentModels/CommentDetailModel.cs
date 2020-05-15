@@ -1,4 +1,5 @@
-﻿using Data.Entities;
+﻿using Data;
+using Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,9 +11,9 @@ namespace Models.CommentModels
 {
     public class CommentDetailModel
     {
-        [ForeignKey("Character")]
-        public int CharacterId { get; set; }
-        public virtual Character Character { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string Name { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public string Text { get; set; }
         public DateTime CreatedAtUtc { get; set; }
     }
