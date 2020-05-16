@@ -29,7 +29,11 @@ namespace Services
             if (contractToCreate.WeaponId != null)
                 entity.WeaponId = (int)contractToCreate.WeaponId;
             else { entity.WeaponId = entity.Character.DefaultWeaponId; }
-            entity.ContractPrice = entity.Character.Price + entity.Planet.Price + entity.Ship.ShipPrice + entity.Weapon.Price;
+            var characterPrice = _ctx.Characters.Find(contractToCreate.CharacterId).Price;
+            var planetPrice = _ctx.Planets.Find(contractToCreate.PlanetId).Price;
+            var shipPrice = _ctx.Ships.Find(contractToCreate.ShipId).ShipPrice;
+            var weaponPrice = _ctx.Weapons.Find(contractToCreate.WeaponId).Price;
+            entity.ContractPrice = characterPrice + planetPrice + shipPrice + weaponPrice;
             _ctx.Contracts.Add(entity);
             _ctx.SaveChanges();
         }
