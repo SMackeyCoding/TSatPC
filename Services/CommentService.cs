@@ -17,7 +17,7 @@ namespace Services
         {
             var entity = new Comment()
             {
-                Name = commentToCreate.ApplicationUser.Name,
+                UserId = commentToCreate.UserId,
                 Text = commentToCreate.Text,
                 CreatedAtUtc = commentToCreate.CreatedAtUtc
             };
@@ -33,15 +33,26 @@ namespace Services
             _ctx.SaveChanges();
         }
 
-        //public IEnumerable<CommentListModel> GetAllCommentsByCharacterId(int characterId)
-        //{
-        //    var characterComments = _ctx.
-        //}
+        public IEnumerable<CommentListModel> GetAllCommentsByCharacterId(int characterId)
+        {
+            List<Comment> comments = (List<Comment>)_ctx.Comments.Select(e => e.CharacterId == characterId);
+            var returnList = comments.Select(e => new CommentListModel()
+            {
+                Text = e.Text,
+            }).ToList();
+            return returnList;
+        }
 
-        //public CommentDetailModel GetDetailedCommentsByCharacterId()
+        //public CommentDetailModel GetDetailedCommentsByCharacterId(int characterId)
         //{
-        //    throw new NotImplementedException();
+        //    List<Comment> comments = (List<Comment>)_ctx.Comments.Select(e => e.CharacterId == characterId);
+        //    var returnList = comments.Select(e => new CommentDetailModel()
+        //    {
+        //        Text = e.Text,
+        //    }).ToList();
+        //    return returnList;
         //}
+        // DONT THINK EMPLOYERS WOULD LIKE HUNTERS KNOWING WHO WROTE WHAT AND WHEN, MAKE IT MORE OBSCURE
 
         public void UpdateCommentByCommentId(int commentId, CommentUpdateModel commentToUpdate)
         {

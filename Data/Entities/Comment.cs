@@ -14,7 +14,7 @@ namespace Data.Entities
         public int CommentId { get; set; }
         [Required]
         [ForeignKey("ApplicationUser")]
-        public string Name { get; set; }
+        public Guid UserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
         public string Text { get; set; }

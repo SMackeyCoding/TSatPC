@@ -24,7 +24,6 @@ namespace Data.Entities
         public int DefaultShipId { get; set; }
 
         [ForeignKey("Comment")]
-        public string Comment { get; set; }
         public virtual Comment Comment { get; set; }
     }
 }

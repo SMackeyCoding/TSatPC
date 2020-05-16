@@ -12,7 +12,7 @@ namespace Models.CommentModels
     public class CommentListModel
     {
         [ForeignKey("ApplicationUser")]
-        public string Name { get; set; }
+        public Guid UserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         public string Text { get; set; }
     }

@@ -12,7 +12,7 @@ namespace Models.CommentModels
     public class CommentCreateModel
     {
         [ForeignKey("ApplicationUser")]
-        public string Name { get; set; }
+        public Guid UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
         public string Text { get; set; }
         public DateTime CreatedAtUtc { get; set; }

@@ -10,8 +10,7 @@ namespace Contracts
     public interface ICommentService
     {
         void CreateComment(CommentCreateModel commentToCreate);
-        IEnumerable<CommentListModel> GetAllCommentsByCharacterId();
-        CommentDetailModel GetDetailedCommentsByCharacterId();
+        IEnumerable<CommentListModel> GetAllCommentsByCharacterId(int characterId);
         void UpdateCommentByCommentId(int commentId, CommentUpdateModel commentToUpdate);
         void DeleteCommentByCommentId(int commentId);
     }
