@@ -29,7 +29,11 @@ namespace Services
             if (contractToCreate.WeaponId != null)
                 entity.WeaponId = (int)contractToCreate.WeaponId;
             else { entity.WeaponId = entity.Character.DefaultWeaponId; }
-            entity.ContractPrice = entity.Character.Price + entity.Planet.Price + entity.Ship.ShipPrice + entity.Weapon.Price;
+            var characterPrice = _ctx.Characters.Find(contractToCreate.CharacterId).Price;
+            var planetPrice = _ctx.Planets.Find(contractToCreate.PlanetId).Price;
+            var shipPrice = _ctx.Ships.Find(contractToCreate.ShipId).ShipPrice;
+            var weaponPrice = _ctx.Weapons.Find(contractToCreate.WeaponId).Price;
+            entity.ContractPrice = characterPrice + planetPrice + shipPrice + weaponPrice;
             _ctx.Contracts.Add(entity);
             _ctx.SaveChanges();
         }
@@ -70,9 +74,29 @@ namespace Services
             return returnList;
         }
 
+        public IEnumerable<ContractCharacterPlanetHistoryModel> GetCharacterPlanetHistory(int characterId)
+        {
+            List<Contract> characterHistory = (List<Contract>)_ctx.Contracts.Select(e => e.CharacterId == characterId);
+            var returnList = characterHistory.Select(e => new ContractCharacterPlanetHistoryModel()
+            {
+                Planet = e.Planet.PlanetName
+            }).ToList();
+            return returnList;
+        }
+
+        public IEnumerable<ContractShipPlanetHistoryModel> GetShipPlanetHistory(int shipId)
+        {
+            List<Contract> shipHistory = (List<Contract>)_ctx.Contracts.Select(e => e.ShipId == shipId);
+            var returnList = shipHistory.Select(e => new ContractShipPlanetHistoryModel()
+            {
+                Planet = e.Planet.PlanetName
+            }).ToList();
+            return returnList;
+        }
+
         public void UpdateContractById(int contractId, ContractUpdateModel contractToUpdate)
         {
-            var entity = _ctx.Contracts.Single(e => e.ContractId == contractToUpdate.ContractId);
+            var entity = _ctx.Contracts.Single(e => e.ContractId == contractId);
             if (entity != null)
             {
                 if (contractToUpdate.ContractDescription != null)

@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B92F5CD2-3CD1-4718-B088-F4E4AE0181D1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Contracts</RootNamespace>
-    <AssemblyName>Contracts</AssemblyName>
+    <ProjectGuid>{426CF3F6-728E-4C79-9E33-1F06BA12ED86}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FrontEndConsoleApp</RootNamespace>
+    <AssemblyName>FrontEndConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,17 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,31 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICharacterService.cs" />
-    <Compile Include="ICommentService.cs" />
-    <Compile Include="IContractService.cs" />
-    <Compile Include="IFavoriteService.cs" />
-    <Compile Include="IPlanetService.cs" />
-    <Compile Include="IShipService.cs" />
-    <Compile Include="IWeaponService.cs" />
+    <Compile Include="EmployerService.cs" />
+    <Compile Include="IEmployerService.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{88FD165D-39CA-4631-AB1D-BDBFA20009A5}</Project>
-      <Name>Data</Name>
+    <ProjectReference Include="..\API\API.csproj">
+      <Project>{d8184624-de18-4680-b971-a8e5715be68c}</Project>
+      <Name>API</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{52BF77C2-5454-4FE5-BF61-BD1192B88354}</Project>
-      <Name>Models</Name>
+    <ProjectReference Include="..\Contracts\Contracts.csproj">
+      <Project>{B92F5CD2-3CD1-4718-B088-F4E4AE0181D1}</Project>
+      <Name>Contracts</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{7DCCF467-3FF7-43FD-B455-6AD4FC8CD85C}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

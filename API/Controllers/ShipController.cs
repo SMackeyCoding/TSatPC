@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using static Data.Entities.Enums;
 
 namespace API.Controllers
 {
@@ -42,6 +43,14 @@ namespace API.Controllers
             var service = CreateShipService();
             var shipDetail = service.GetShipDetailById(shipId);
             return Ok(shipDetail);
+        }
+        [HttpGet]
+        [Route("{ShipType}")]
+        public IHttpActionResult GetShipByClass([FromUri] ShipClass shipType)
+        {
+            var service = CreateShipService();
+            var shipClass = service.GetShipByClass(shipType);
+            return Ok(shipClass);
         }
         [HttpPut]
         [Route("{ShipId:int}")]

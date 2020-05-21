@@ -51,16 +51,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentModels\CommentDetailModel.cs" />
+    <Compile Include="CommentModels\CommentListModel.cs" />
+    <Compile Include="CommentModels\CommentCreateModel.cs" />
+    <Compile Include="CommentModels\CommentDeleteModel.cs" />
+    <Compile Include="CommentModels\CommentUpdateModel.cs" />
     <Compile Include="ContractModels\ContractCreateModel.cs" />
     <Compile Include="ContractModels\ContractDeleteModel.cs" />
     <Compile Include="ContractModels\ContractDetailModel.cs" />
+    <Compile Include="ContractModels\ContractCharacterPlanetHistoryModel.cs" />
     <Compile Include="ContractModels\ContractListItem.cs" />
+    <Compile Include="ContractModels\ContractShipPlanetHistoryModel.cs" />
     <Compile Include="ContractModels\ContractUpdateModel.cs" />
     <Compile Include="CharacterModels\CharacterCreateModel.cs" />
     <Compile Include="CharacterModels\CharacterDeleteModel.cs" />
     <Compile Include="CharacterModels\CharacterDetailModel.cs" />
     <Compile Include="CharacterModels\CharacterListModel.cs" />
     <Compile Include="CharacterModels\CharacterUpdateModel.cs" />
+    <Compile Include="FavoriteModels\FavoritesCreateModel.cs" />
+    <Compile Include="FavoriteModels\FavoritesDeleteModel.cs" />
+    <Compile Include="FavoriteModels\FavoritesDetailModel.cs" />
+    <Compile Include="FavoriteModels\FavoritesListItem.cs" />
+    <Compile Include="FavoriteModels\FavoritesUpdateModel.cs" />
     <Compile Include="ContractModels\SuccessRateModel.cs" />
     <Compile Include="PlanetModels\PlanetCreateModel.cs" />
     <Compile Include="PlanetModels\PlanetDetailModel.cs" />
@@ -70,11 +82,13 @@
     <Compile Include="ShipModels\ShipCreateModel.cs" />
     <Compile Include="ShipModels\ShipDeleteModel.cs" />
     <Compile Include="ShipModels\ShipDetailModel.cs" />
+    <Compile Include="ShipModels\ShipGetByType.cs" />
     <Compile Include="ShipModels\ShipListModel.cs" />
     <Compile Include="ShipModels\ShipUpdateModel.cs" />
     <Compile Include="WeaponModels\WeaponCreateModel.cs" />
     <Compile Include="WeaponModels\WeaponDeleteModel.cs" />
     <Compile Include="WeaponModels\WeaponDetailModel.cs" />
+    <Compile Include="WeaponModels\WeaponGetByType.cs" />
     <Compile Include="WeaponModels\WeaponListModel.cs" />
     <Compile Include="WeaponModels\WeaponUpdateModel.cs" />
   </ItemGroup>

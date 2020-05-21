@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Data.Entities;
@@ -18,6 +19,8 @@ namespace Data
             // Add custom user claims here
             return userIdentity;
         }
+        public Guid UserId { get; set; }
+        public string Name { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -36,5 +39,7 @@ namespace Data
         public DbSet<Planet> Planets { get; set; }
         public DbSet<Weapon> Weapons { get; set; }
         public DbSet<Ship> Ships { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }
