@@ -17,7 +17,7 @@ namespace Services
         {
             var entity = new Comment()
             {
-                UserId = commentToCreate.UserId,
+                //UserId = commentToCreate.UserId,
                 Text = commentToCreate.Text,
                 CreatedAtUtc = commentToCreate.CreatedAtUtc
             };

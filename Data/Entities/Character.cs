@@ -22,5 +22,8 @@ namespace Data.Entities
         public string Affiliation { get; set; }
         public int DefaultWeaponId { get; set; }
         public int DefaultShipId { get; set; }
+
+        //[ForeignKey("Comment")]
+        //public virtual Comment Comment { get; set; }
     }
 }
