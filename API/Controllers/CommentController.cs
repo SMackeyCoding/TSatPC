@@ -17,6 +17,7 @@ namespace API.Controllers
             var commentService = new CommentService();
             return commentService;
         }
+        
         [HttpPost]
         [Route("Create")]
         public IHttpActionResult CreateComment([FromBody] CommentCreateModel commentToCreate)
@@ -27,6 +28,7 @@ namespace API.Controllers
             service.CreateComment(commentToCreate);
             return Ok();
         }
+        
         [HttpGet]
         [Route("{CharacterId:int}")]
         public IHttpActionResult GetCommentList([FromUri] int characterId)
@@ -35,6 +37,7 @@ namespace API.Controllers
             var comments = service.GetAllCommentsByCharacterId(characterId);
             return Ok(comments);
         }
+        
         [HttpPut]
         [Route("{CharacterId:int}")]
         public IHttpActionResult UpdateCommentById([FromUri] int characterId, CommentUpdateModel commentToUpdate)
@@ -45,6 +48,7 @@ namespace API.Controllers
             service.UpdateCommentByCommentId(characterId, commentToUpdate);
                 return Ok();
         }
+        
         [HttpDelete]
         [Route("{CommentId:int}")]
         public IHttpActionResult DeleteCommentById([FromUri] int commentId)

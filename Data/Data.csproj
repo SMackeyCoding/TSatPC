@@ -116,6 +116,10 @@
     <Compile Include="Migrations\202005301916379_OmittedCommentProblems.designer.cs">
       <DependentUpon>202005301916379_OmittedCommentProblems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005302214445_AddedRoles.cs" />
+    <Compile Include="Migrations\202005302214445_AddedRoles.designer.cs">
+      <DependentUpon>202005302214445_AddedRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005301916379_OmittedCommentProblems.resx">
       <DependentUpon>202005301916379_OmittedCommentProblems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005302214445_AddedRoles.resx">
+      <DependentUpon>202005302214445_AddedRoles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
