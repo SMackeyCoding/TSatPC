@@ -28,7 +28,7 @@ namespace API.Controllers
             return Ok();
         }
         [HttpGet]
-        [Route("{CharacterId:int")]
+        [Route("{CharacterId:int}")]
         public IHttpActionResult GetCommentList([FromUri] int characterId)
         {
             var service = CreateCommentService();
@@ -36,7 +36,7 @@ namespace API.Controllers
             return Ok(comments);
         }
         [HttpPut]
-        [Route("{characterId:int")]
+        [Route("{characterId:int}")]
         public IHttpActionResult UpdateCommentById([FromUri] int characterId, CommentUpdateModel commentToUpdate)
         {
             if (!ModelState.IsValid)
@@ -46,7 +46,7 @@ namespace API.Controllers
                 return Ok();
         }
         [HttpDelete]
-        [Route("{CommentId:int")]
+        [Route("{CommentId:int}")]
         public IHttpActionResult DeleteCommentById([FromUri] int commentId)
         {
             var service = CreateCommentService();
