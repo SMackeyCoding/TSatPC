@@ -112,6 +112,10 @@
     <Compile Include="Migrations\202005122301209_favorites to favorite, added DbSet.Designer.cs">
       <DependentUpon>202005122301209_favorites to favorite, added DbSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005301916379_OmittedCommentProblems.cs" />
+    <Compile Include="Migrations\202005301916379_OmittedCommentProblems.designer.cs">
+      <DependentUpon>202005301916379_OmittedCommentProblems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005122301209_favorites to favorite, added DbSet.resx">
       <DependentUpon>202005122301209_favorites to favorite, added DbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301916379_OmittedCommentProblems.resx">
+      <DependentUpon>202005301916379_OmittedCommentProblems.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

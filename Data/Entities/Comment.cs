@@ -12,9 +12,9 @@ namespace Data.Entities
     {
         [Key]
         public int CommentId { get; set; }
-        [Required]
-        [ForeignKey("ApplicationUser")]
-        public Guid UserId { get; set; }
+        //[Required]
+        //[ForeignKey("ApplicationUser")]
+        //public Guid UserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
         public string Text { get; set; }

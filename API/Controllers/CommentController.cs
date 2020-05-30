@@ -36,7 +36,7 @@ namespace API.Controllers
             return Ok(comments);
         }
         [HttpPut]
-        [Route("{characterId:int}")]
+        [Route("{CharacterId:int}")]
         public IHttpActionResult UpdateCommentById([FromUri] int characterId, CommentUpdateModel commentToUpdate)
         {
             if (!ModelState.IsValid)
