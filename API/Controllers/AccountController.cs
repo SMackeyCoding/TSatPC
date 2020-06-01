@@ -17,25 +17,32 @@ using API.Models;
 using API.Providers;
 using API.Results;
 using Data;
+using System.Linq;
+using static API.ApplicationUserManager;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace API.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
+        private ApplicationRoleManager _roleManager;
 
         public AccountController()
         {
         }
 
         public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
+            RoleManager = roleManager;
         }
 
         public ApplicationUserManager UserManager
@@ -126,7 +133,7 @@ namespace API.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -259,9 +266,9 @@ namespace API.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -331,6 +338,9 @@ namespace API.Controllers
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
+            // Set the IsDeleted property to false
+            user.IsDeleted = false;
+
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
@@ -369,7 +379,7 @@ namespace API.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }
@@ -491,5 +501,103 @@ namespace API.Controllers
         }
 
         #endregion
+
+        [AllowAnonymous]
+        [Route("users/{id:guid}/roles")]
+        [HttpPut]
+        public async Task<IHttpActionResult> AssignRolesToUser(string id, string[] rolesToAssign)
+        {
+            if (rolesToAssign == null)
+            {
+                return this.BadRequest("No roles specified");
+            }
+
+            ///find the user we want to assign roles to
+            var appUser = await this.UserManager.FindByIdAsync(id);
+
+            if (appUser == null || appUser.IsDeleted)
+            {
+                return NotFound();
+            }
+
+            ///check if the user currently has any roles
+            var currentRoles = await this.UserManager.GetRolesAsync(appUser.Id);
+
+
+            var rolesNotExist = rolesToAssign.Except(this.RoleManager.Roles.Select(x => x.Name)).ToArray();
+
+            if (rolesNotExist.Count() > 0)
+            {
+                ModelState.AddModelError("", string.Format("Roles '{0}' does not exist in the system", string.Join(",", rolesNotExist)));
+                return this.BadRequest(ModelState);
+            }
+
+            ///remove user from current roles, if any
+            IdentityResult removeResult = await this.UserManager.RemoveFromRolesAsync(appUser.Id, currentRoles.ToArray());
+
+
+            if (!removeResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Failed to remove user roles");
+                return BadRequest(ModelState);
+            }
+
+            ///assign user to the new roles
+            IdentityResult addResult = await this.UserManager.AddToRolesAsync(appUser.Id, rolesToAssign);
+
+            if (!addResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Failed to add user roles");
+                return BadRequest(ModelState);
+            }
+
+            return Ok(new { userId = id, rolesAssigned = rolesToAssign });
+        }
+
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? Request.GetOwinContext().GetUserManager<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
+        }
+
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        [Route("user/{id:guid}")]
+        public IHttpActionResult DeleteUser(string id)
+        {
+            // Check if such a user exists in the database
+            var userToDelete = this.UserManager.FindById(id);
+            if (userToDelete == null)
+            {
+                return this.NotFound();
+            }
+            else if (userToDelete.IsDeleted)
+            {
+                return this.BadRequest("User already deleted");
+            }
+            else
+            {
+                var con = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(con))
+                {
+                    using (SqlCommand command = new SqlCommand("dbo.DeleteUser", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@UserId", SqlDbType.NVarChar).Value = id;
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+            }
+            return this.Ok();
+        }
     }
 }

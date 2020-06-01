@@ -21,6 +21,9 @@ namespace Data
         }
         public Guid UserId { get; set; }
         public string Name { get; set; }
+
+        // Property used for soft deleting users
+        public bool IsDeleted { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

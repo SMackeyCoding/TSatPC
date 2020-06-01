@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [RoutePrefix("api/Characters")]
     public class CharacterController : ApiController
     {
@@ -17,6 +18,8 @@ namespace API.Controllers
             var characterService = new CharacterService();
             return characterService;
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Hunter")]
         [HttpPost]
         [Route("Create")]
         public IHttpActionResult CreateCharacter([FromBody] CharacterCreateModel characterToCreate)
@@ -27,6 +30,8 @@ namespace API.Controllers
             service.CreateCharacter(characterToCreate);
             return Ok();
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client,Hunter")]
         [HttpGet]
         [Route("List")]
         public IHttpActionResult GetCharacterList()
@@ -35,6 +40,8 @@ namespace API.Controllers
             var characters = service.GetAllCharacters();
             return Ok(characters);
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client,Hunter")]
         [HttpGet]
         [Route("{CharacterId:int}")]
         public IHttpActionResult GetCharacterDetailById([FromUri] int characterId)
@@ -43,6 +50,8 @@ namespace API.Controllers
             var characterDetail = service.GetCharacterDetailById(characterId);
             return Ok(characterDetail);
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Hunter")]
         [HttpPut]
         [Route("{CharacterId:int}")]
         public IHttpActionResult UpdateCharacterById([FromUri] int characterId, CharacterUpdateModel characterToUpdate)
@@ -53,6 +62,8 @@ namespace API.Controllers
             service.UpdateCharacterById(characterId, characterToUpdate);
             return Ok();
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Hunter")]
         [HttpDelete]
         [Route("{CharacterId:int}")]
         public IHttpActionResult DeleteCharacterById([FromUri] int characterId)

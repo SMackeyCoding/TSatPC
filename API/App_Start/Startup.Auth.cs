@@ -11,6 +11,7 @@ using Owin;
 using API.Providers;
 using API.Models;
 using Data;
+using static API.ApplicationUserManager;
 
 namespace API
 {
@@ -31,6 +32,12 @@ namespace API
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
+            // Initializing User Manager
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+
+            // Initializing Role Manager
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
             // Configure the application for OAuth based flow
             PublicClientId = "self";

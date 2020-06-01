@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [RoutePrefix("api/contracts")]
     public class ContractController : ApiController
     {
@@ -17,6 +18,8 @@ namespace API.Controllers
             var contractService = new ContractService();
             return contractService;
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client")]
         [HttpPost]
         [Route("Create")]
         public IHttpActionResult CreateContract(ContractCreateModel contractToCreate)
@@ -27,6 +30,8 @@ namespace API.Controllers
             service.CreateContract(contractToCreate);
             return Ok();
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client,Hunter")]
         [HttpGet]
         [Route("List")]
         public IHttpActionResult GetContractList()
@@ -35,6 +40,8 @@ namespace API.Controllers
             var contracts = service.GetAllContracts();
             return Ok(contracts);
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client,Hunter")]
         [HttpGet]
         [Route("{ContractId:int}")]
         public IHttpActionResult GetContractDetailById([FromUri] int contractId)
@@ -43,6 +50,8 @@ namespace API.Controllers
             var contractDetail = service.GetContractDetailById(contractId);
             return Ok(contractDetail);
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client")]
         [HttpGet]
         [Route("{CharacterId:int}")]
         public IHttpActionResult GetCharacterPlanetHistory([FromUri] int characterId)
@@ -51,6 +60,8 @@ namespace API.Controllers
             var characterHistory = service.GetCharacterPlanetHistory(characterId);
             return Ok(characterHistory);
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client")]
         [HttpGet]
         [Route("{ShipId:int}")]
         public IHttpActionResult GetShipPlanetHistory([FromUri] int shipId)
@@ -59,6 +70,8 @@ namespace API.Controllers
             var shipHistory = service.GetShipPlanetHistory(shipId);
             return Ok(shipHistory);
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client,Hunter")]
         [HttpPut]
         [Route("{ContractId:int}")]
         public IHttpActionResult UpdateContract([FromUri] int contractId, ContractUpdateModel contractToUpdate)
@@ -69,6 +82,8 @@ namespace API.Controllers
             service.UpdateContractById(contractId, contractToUpdate);
             return Ok();
         }
+        [OverrideAuthorization]
+        [Authorize(Roles = "Admin,Client")]
         [HttpDelete]
         [Route("{ContractId:int}")]
         public IHttpActionResult DeleteContract([FromUri] int contractId)
