@@ -19,9 +19,6 @@ namespace Data
             // Add custom user claims here
             return userIdentity;
         }
-        public Guid UserId { get; set; }
-        public string Name { get; set; }
-
         // Property used for soft deleting users
         public bool IsDeleted { get; set; }
     }
