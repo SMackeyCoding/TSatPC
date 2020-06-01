@@ -12,7 +12,7 @@ Visual Studio 2019
   <p>On the start window, choose Clone or check out code.</p>
   <p>Enter or type the repository location: https://github.com/J-Crawford89/TSatPC.git, and then choose Clone. Visual Studio will open the project from the repo.</p>
   <p>Before you begin, update the database in the Package Manager Console to get the seed content.</p>
-  <p>The default user is admin and password is Password1@</p>
+  <p>The default user is "admin" and password is "Password1@".</p>
 </div>
 
 ## Database Diagram
