@@ -49,8 +49,8 @@ namespace Services
                 Species = i.Species,
                 Price = i.Price,
                 Affiliation = i.Affiliation,
-                DefaultWeaponId = i.DefaultWeaponId,
-                DefaultShipId = i.DefaultShipId
+                DefaultWeaponName = i.DefaultWeapon.Name,
+                DefaultShipName = i.DefaultShip.ShipName
             };
             return entity;
         }

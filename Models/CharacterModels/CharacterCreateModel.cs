@@ -20,7 +20,7 @@ namespace Models.CharacterModels
 
         public int Price { get; set; }
         public string Affiliation { get; set; }
-        public int DefaultWeaponId { get; set; }
-        public int DefaultShipId { get; set; }
+        public int? DefaultWeaponId { get; set; }
+        public int? DefaultShipId { get; set; }
     }
 }

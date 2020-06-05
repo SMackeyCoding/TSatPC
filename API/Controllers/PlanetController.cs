@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [RoutePrefix("api/Planets")]
     public class PlanetController : ApiController
     {

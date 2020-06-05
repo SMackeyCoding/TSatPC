@@ -47,7 +47,7 @@ namespace Services
             {
                 ShipId = i.ShipId,
                 ShipName = i.ShipName,
-                ShipClass = i.ShipClass,
+                ShipClass = i.ShipClass.ToString(),
                 ShipModel = i.ShipModel,
                 ShipManufacturer = i.ShipManufacturer,
                 ShipHyperdrive = i.ShipHyperdrive,
@@ -64,7 +64,8 @@ namespace Services
             {
                 ShipId = e.ShipId,
                 ShipName = e.ShipName,
-                ShipClass = e.ShipClass,
+                ShipClass = e.ShipClass.ToString(),
+                ShipHyperdrive = e.ShipHyperdrive,
                 ShipPrice = e.ShipPrice
             }).ToList();
             return returnList;

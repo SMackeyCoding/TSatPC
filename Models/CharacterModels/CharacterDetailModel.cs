@@ -14,7 +14,7 @@ namespace Models.CharacterModels
         public string Species { get; set; }
         public int Price { get; set; }
         public string Affiliation { get; set; }
-        public int DefaultWeaponId { get; set; }
-        public int DefaultShipId { get; set; }
+        public string DefaultWeaponName { get; set; }
+        public string DefaultShipName { get; set; }
     }
 }

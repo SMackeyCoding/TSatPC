@@ -17,6 +17,7 @@ namespace API.Controllers
             var favoritesService = new FavoriteService();
             return favoritesService;
         }
+        
         [HttpPost]
         [Route("Create")]
         public IHttpActionResult CreateFavorite(FavoritesCreateModel favoritesToCreate)
@@ -27,6 +28,7 @@ namespace API.Controllers
             service.CreateFavorite(favoritesToCreate);
             return Ok();
         }
+        
         [HttpGet]
         [Route("List")]
         public IHttpActionResult GetContractList()

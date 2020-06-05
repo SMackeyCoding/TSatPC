@@ -10,6 +10,7 @@ using static Data.Entities.Enums;
 
 namespace API.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [RoutePrefix("api/Ships")]
     public class ShipController : ApiController
     {

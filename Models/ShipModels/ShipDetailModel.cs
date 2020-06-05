@@ -11,7 +11,7 @@ namespace Models.ShipModels
     {
         public int ShipId { get; set; }
         public string ShipName { get; set; }
-        public ShipClass ShipClass { get; set; }
+        public string ShipClass { get; set; }
         public string ShipModel { get; set; }
         public string ShipManufacturer { get; set; }
         public bool ShipHyperdrive { get; set; }
