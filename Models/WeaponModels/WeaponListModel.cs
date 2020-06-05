@@ -11,7 +11,7 @@ namespace Models.WeaponFolder
     {
         public int WeaponId { get; set; }
         public string Name { get; set; }
-        public WeaponType Type { get; set; }
+        public string Type { get; set; }
         public string Damage { get; set; }
         public int Price { get; set; }
     }

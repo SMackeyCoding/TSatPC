@@ -53,7 +53,7 @@ namespace API.Controllers
         [OverrideAuthorization]
         [Authorize(Roles = "Admin,Client")]
         [HttpGet]
-        [Route("{CharacterId:int}")]
+        [Route("ByCharacter/{CharacterId:int}")]
         public IHttpActionResult GetCharacterPlanetHistory([FromUri] int characterId)
         {
             var service = CreateContractService();
@@ -63,7 +63,7 @@ namespace API.Controllers
         [OverrideAuthorization]
         [Authorize(Roles = "Admin,Client")]
         [HttpGet]
-        [Route("{ShipId:int}")]
+        [Route("ByShip/{ShipId:int}")]
         public IHttpActionResult GetShipPlanetHistory([FromUri] int shipId)
         {
             var service = CreateContractService();

@@ -13,11 +13,11 @@ namespace Models.ContractModels
     {
         public int ContractId { get; set; }
         public string ContractDescription { get; set; }
-        public int CharacterId { get; set; }
-        public int PlanetId { get; set; }
-        public int ShipId { get; set; }
-        public int WeaponId { get; set; }
+        public string Character { get; set; }
+        public string Planet { get; set; }
+        public string Ship { get; set; }
+        public string Weapon { get; set; }
         public int ContractPrice { get; set; }
-        public ContractStatus ContractStatus { get; set; }
+        public string ContractStatus { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace Services
             {
                 WeaponId = i.WeaponId,
                 Name = i.Name,
-                Type = i.Type,
+                Type = i.Type.ToString(),
                 Range = i.Range,
                 WeaponColor = i.WeaponColor,
                 BladeOrEnergyColor = i.BladeOrEnergyColor,
@@ -63,7 +63,8 @@ namespace Services
             {
                 WeaponId = e.WeaponId,
                 Name = e.Name,
-                Type = e.Type,
+                Type = e.Type.ToString(),
+                Damage = e.Damage,
                 Price = e.Price
             }).ToList();
             return returnList;
@@ -71,7 +72,7 @@ namespace Services
 
         public IEnumerable<WeaponGetByType> GetWeaponByType(WeaponType type)
         {
-            List<Weapon> weapons = (List<Weapon>)_ctx.Weapons.Select(e => e.Type == type);
+            var weapons = _ctx.Weapons.Where(e => e.Type == type);
             var returnList = weapons.Select(e => new WeaponGetByType()
             {
                 Name = e.Name

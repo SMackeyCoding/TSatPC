@@ -17,22 +17,38 @@ namespace Services
 
         public void CreateContract(ContractCreateModel contractToCreate)
         {
+            int weaponPrice;
+            int shipPrice;
+
             var entity = new Contract()
             {
                 ContractDescription = contractToCreate.ContractDescription,
                 CharacterId = contractToCreate.CharacterId,
                 PlanetId = contractToCreate.PlanetId,
             };
+            Character character = _ctx.Characters.Single(e => e.CharacterId == contractToCreate.CharacterId);
             if (contractToCreate.ShipId != null)
+            {
                 entity.ShipId = (int)contractToCreate.ShipId;
-            else { entity.ShipId = entity.Character.DefaultShipId; }
+                shipPrice = _ctx.Ships.Find(contractToCreate.ShipId).ShipPrice;
+            }
+            else 
+            {
+                entity.ShipId = (int)character.DefaultShipId;
+                shipPrice = _ctx.Ships.Find(character.DefaultShipId).ShipPrice;
+            }
             if (contractToCreate.WeaponId != null)
+            {
                 entity.WeaponId = (int)contractToCreate.WeaponId;
-            else { entity.WeaponId = entity.Character.DefaultWeaponId; }
+                weaponPrice = _ctx.Weapons.Find(contractToCreate.WeaponId).Price;
+            }
+            else
+            { 
+                entity.WeaponId = (int)character.DefaultWeaponId;
+                weaponPrice = _ctx.Weapons.Find(character.DefaultWeaponId).Price;
+            }
             var characterPrice = _ctx.Characters.Find(contractToCreate.CharacterId).Price;
             var planetPrice = _ctx.Planets.Find(contractToCreate.PlanetId).Price;
-            var shipPrice = _ctx.Ships.Find(contractToCreate.ShipId).ShipPrice;
-            var weaponPrice = _ctx.Weapons.Find(contractToCreate.WeaponId).Price;
             entity.ContractPrice = characterPrice + planetPrice + shipPrice + weaponPrice;
             _ctx.Contracts.Add(entity);
             _ctx.SaveChanges();
@@ -52,12 +68,12 @@ namespace Services
             {
                 ContractId = i.ContractId,
                 ContractDescription = i.ContractDescription,
-                CharacterId = i.CharacterId,
-                PlanetId = i.PlanetId,
-                ShipId = i.ShipId,
-                WeaponId = i.WeaponId,
+                Character = $"{i.Character.FirstName} {i.Character.LastName}",
+                Planet = i.Planet.PlanetName,
+                Ship = i.Ship.ShipName,
+                Weapon = i.Weapon.Name,
                 ContractPrice = i.ContractPrice,
-                ContractStatus = i.ContractStatus
+                ContractStatus = i.ContractStatus.ToString()
             };
             return entity;
         }
@@ -69,14 +85,14 @@ namespace Services
                 ContractId = e.ContractId,
                 ContractDescription = e.ContractDescription,
                 ContractPrice = e.ContractPrice,
-                ContractStatus = e.ContractStatus
+                ContractStatus = e.ContractStatus.ToString()
             }).ToList();
             return returnList;
         }
 
         public IEnumerable<ContractCharacterPlanetHistoryModel> GetCharacterPlanetHistory(int characterId)
         {
-            List<Contract> characterHistory = (List<Contract>)_ctx.Contracts.Select(e => e.CharacterId == characterId);
+            var characterHistory = _ctx.Contracts.Where(e => e.CharacterId == characterId);
             var returnList = characterHistory.Select(e => new ContractCharacterPlanetHistoryModel()
             {
                 Planet = e.Planet.PlanetName
@@ -86,7 +102,7 @@ namespace Services
 
         public IEnumerable<ContractShipPlanetHistoryModel> GetShipPlanetHistory(int shipId)
         {
-            List<Contract> shipHistory = (List<Contract>)_ctx.Contracts.Select(e => e.ShipId == shipId);
+            var shipHistory = _ctx.Contracts.Where(e => e.ShipId == shipId);
             var returnList = shipHistory.Select(e => new ContractShipPlanetHistoryModel()
             {
                 Planet = e.Planet.PlanetName
@@ -122,7 +138,7 @@ namespace Services
                 ContractId = e.ContractId,
                 ContractDescription = e.ContractDescription,
                 ContractPrice = e.ContractPrice,
-                ContractStatus = e.ContractStatus
+                ContractStatus = e.ContractStatus.ToString()
             }).ToList();
             return returnList;
         }
@@ -135,9 +151,9 @@ namespace Services
             for(int i = 0; i < listOfContracts.Count(); i++)
             {
                 var nextContract = listOfContracts[i];
-                if (nextContract.ContractStatus == ContractStatus.Completed)
+                if (nextContract.ContractStatus == ContractStatus.Completed.ToString())
                     completedContracts++;
-                else if (nextContract.ContractStatus == ContractStatus.Failed)
+                else if (nextContract.ContractStatus == ContractStatus.Failed.ToString())
                     failedContracts++;
             }
             double finalizedContracts = completedContracts + failedContracts;

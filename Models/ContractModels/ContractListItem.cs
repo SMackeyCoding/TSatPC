@@ -13,6 +13,6 @@ namespace Models.ContractModels
         public int ContractId { get; set; }
         public string ContractDescription { get; set; }
         public int ContractPrice { get; set; }
-        public ContractStatus ContractStatus { get; set; }
+        public string ContractStatus { get; set; }
     }
 }
