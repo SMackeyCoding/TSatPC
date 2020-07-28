@@ -20,7 +20,7 @@ View a list of each table in our database in [Database Diagram] (https://dbdiagr
 
 ## Credit
 <div>
-  <p>Stephen Mackey, @J-Crawford89</p>
-  <p>Jonathan Crawford, @SMackeyCoding</p>
+  <p>Stephen Mackey, @SMackeyCoding</p>
+  <p>Jonathan Crawford, @J-Crawford89</p>
   <p>Loretta Tappan, @lorettadtappan</p>
 </div>
